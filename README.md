@@ -12,6 +12,7 @@ For this project I looked into the [JAM stack](https://jamstack.org/). Its a pro
 - [X] Build the Featured items page
 - [X] Build the Blogs page
 - [X] Build the categories page
+- [] Add firebase support(oh boi I didn't think I would have reached it so far. Well here goes nothing.)
 
 ## To-Do list Long Term
 - [ ] Remove all the shitcode
