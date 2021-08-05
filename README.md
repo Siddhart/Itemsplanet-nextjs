@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Itemsplanet.com
 
-## Getting Started
+Itemsplanet is a website where you can find all sorts of cool items.
 
-First, run the development server:
+## Process
+For this project I looked into the [JAM stack](https://jamstack.org/). Its a project that has a lot of pages. And I don't really have a server where I can render everything serverside. The JAMstack was my best option in this situation. As the Static Site Generator I used [Next.js](https://nextjs.org/). For my Content Management System i used [GraphCMS](https://graphcms.com/). The user is scrolling down to see the items. When the user has reached the end of the file it will show a button which says "show more". When the user clicks on this button it will render the data of the chunk. The generateChunks.js file basically scrapes all the data form the cms and generates chunks with it. These chunks will be locally fetched on the client side.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## To-Do list Short Term
+- [X] Build the Main page
+- [X] Build the Item page
+- [X] Build the Blog page
+- [X] Build the Featured items page
+- [ ] Build the Blogs page
+- [X] Build the categories page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## To-Do list Long Term
+- [ ] Remove all the shitcode
+- [ ] Fix the css(I thought it was a good idea to split up all the css for every page. butttt it really wasn't a good idea so i have to redo that part)
