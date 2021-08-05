@@ -10,7 +10,7 @@ For this project I looked into the [JAM stack](https://jamstack.org/). Its a pro
 - [X] Build the Item page
 - [X] Build the Blog page
 - [X] Build the Featured items page
-- [ ] Build the Blogs page
+- [X] Build the Blogs page
 - [X] Build the categories page
 
 ## To-Do list Long Term
