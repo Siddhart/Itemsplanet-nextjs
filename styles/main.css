@@ -356,3 +356,100 @@
 .blog{
     z-index: 10;
 }
+
+/* SIGNIN */
+.auth-user-section {
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.auth-user-section a {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    background-color: var(--sec_color);
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 100px;
+    font-size: 26px;
+    font-weight: 700
+}
+
+.auth {
+    width: 360px;
+    max-width: 360px;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center
+}
+
+.auth-title {
+    font-size: 48px;
+    font-weight: 700
+}
+
+.input-with-icon {
+    width: 100%;
+    background-color: #f8f8f8;
+    display: flex;
+    height: 50px;
+    border-radius: 100px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.input-with-icon i {
+    height: 50px;
+    width: 50px;
+    font-size: 21px;
+    margin-top: 13.5px;
+    margin-left: 15px
+}
+
+.input-with-icon input:focus {
+    outline: 0
+}
+
+.input-with-icon input {
+    width: 100%;
+    border: none;
+    font-size: 21px;
+    background-color: #f8f8f8;
+    margin-left: 10px;
+    border-radius: 0 100px 100px 0;
+    margin-right: 10px
+}
+
+.auth-message {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red
+}
+
+label{
+    margin-right: 10px;
+}
+
+.auth-action-button button {
+    color: #fff;
+    background: #ffbfc1;
+    background: linear-gradient(248deg, rgba(255, 191, 193, 1) 0, rgba(226, 140, 219, 1) 100%);
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    font-size: 28px;
+    font-weight: bolder;
+    width: 100%;
+    margin-right: 45px;
+    margin-bottom: 20px
+}
+
+.already-have-account p a {
+    color: #50abff
+}

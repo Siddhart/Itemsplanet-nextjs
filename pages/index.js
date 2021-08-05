@@ -8,7 +8,7 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Home() {
+export default function Home({ saveToUser }) {
   const [featuredItems, setFeaturedItems] = useState([]);
 
   const [mainItems, setMainItems] = useState([]);
@@ -58,9 +58,10 @@ export default function Home() {
         <div className="item-grid">
           {featuredItems.map((featured) => (
             <Card
-              key={Math.floor(Math.random() * 10000)}
+              key={featured.node.id}
               cardClass={featured.node.cardClass}
               itemData={featured.node}
+              saveToUser={saveToUser}
             />
           ))}
         </div>
@@ -71,8 +72,9 @@ export default function Home() {
         <div className="item-grid">
           {mainItems.map((mainItem) => (
             <Card
-              key={Math.floor(Math.random() * 10000)}
+              key={mainItem.node.id}
               itemData={mainItem.node}
+              saveToUser={saveToUser}
             />
           ))}
         </div>

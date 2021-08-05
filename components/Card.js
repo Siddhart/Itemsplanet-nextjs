@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Card = ({ itemData }) => {
+const Card = ({ itemData, saveToUser }) => {
   let itemUrl;
   let blog = itemData.blog;
 
@@ -50,7 +50,7 @@ const Card = ({ itemData }) => {
           <Image src={imageUrl} alt={itemData.title} layout="fill" />
         </div>
       </a>
-      <button click="saveItem()" className="savebutton">
+      <button onClick={() =>{saveToUser(itemData.id)}} className="savebutton">
         <i className="fas fa-heart"></i>
       </button>
       <p className="item-title">{itemData.title}</p>

@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Blogs() {
+export default function Blogs({ saveToUser }) {
   const [blogItems, setBlogItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);
@@ -45,9 +45,10 @@ export default function Blogs() {
         <div className="item-grid">
           {blogItems.map((blogItem) => (
             <Card
-            key={Math.floor(Math.random() * 10000)}
+            key={blogItem.node.id}
             cardClass={blogItem.node.cardClass}
             itemData={blogItem.node}
+            saveToUser={saveToUser}
             />
           ))}
         </div>

@@ -9,6 +9,7 @@ const query = gql`
     blogsConnection(first: 2500) {
       edges {
         node {
+          id
           title
           backgroundImage {
             url
@@ -22,6 +23,7 @@ const query = gql`
     itemConnection(first: 2500) {
       edges {
         node {
+          id
           title
           images(first: 1) {
             url

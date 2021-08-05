@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Featured() {
+export default function Featured({ saveToUser }) {
   const [featuredItems, setFeaturedItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);
@@ -45,9 +45,10 @@ export default function Featured() {
         <div className="item-grid">
           {featuredItems.map((featureditem) => (
             <Card
-              key={Math.floor(Math.random() * 10000)}
+              key={featureditem.node.id}
               cardClass={featureditem.node.cardClass}
               itemData={featureditem.node}
+              saveToUser={saveToUser}
             />
           ))}
         </div>
