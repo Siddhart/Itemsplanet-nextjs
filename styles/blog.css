@@ -1,0 +1,131 @@
+.blog-content {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.blog-main-image {
+    margin-top: 75px;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden
+}
+
+.blog-main-image img {
+    width: 100%
+}
+
+.blog-title {
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center
+}
+
+.blog-last-edited {
+    text-align: center;
+    margin-top: -10px;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #4b4b4b
+}
+
+.blog-desc {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+.blog-text-content {
+    text-align: left;
+    width: 100%;
+    margin-top: 50px;
+    padding-bottom: 50px
+}
+
+@media screen and (max-width:1025px) {
+    .blog-image {
+        border-radius: 10px 10px 0 0;
+        display: block;
+        width: inherit;
+        overflow: hidden;
+        width: 437px;
+        height: 275px
+    }
+}
+
+@media screen and (max-width:920px) {
+    .blog-image {
+        border-radius: 10px 10px 0 0;
+        display: block;
+        width: inherit;
+        overflow: hidden;
+        width: 550px;
+        height: 325px
+    }
+    .blog-content {
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto
+    }
+    .blog-title {
+        font-size: 40px;
+        font-weight: bolder;
+        text-align: center
+    }
+    .blog-last-edited {
+        text-align: center;
+        margin-top: -10px;
+        font-weight: bolder;
+        font-size: 18px;
+        color: #4b4b4b
+    }
+    .blog-desc {
+        font-size: 20px;
+        font-weight: 700
+    }
+    .blog-main-image {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: hidden
+    }
+}
+
+@media screen and (max-width:575px) {
+    .blog-image {
+        border-radius: 10px 10px 0 0;
+        display: block;
+        width: inherit;
+        overflow: hidden;
+        width: 350px;
+        height: 225px
+    }
+    .blog-content {
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto
+    }
+    .blog-title {
+        font-size: 40px;
+        font-weight: bolder;
+        text-align: center
+    }
+    .blog-last-edited {
+        text-align: center;
+        margin-top: -10px;
+        font-weight: bolder;
+        font-size: 18px;
+        color: #4b4b4b
+    }
+    .blog-desc {
+        font-size: 20px;
+        font-weight: 700
+    }
+    .blog-main-image {
+        position: relative;
+        width: 100%;
+        height: 225px;
+        overflow: hidden
+    }
+}

@@ -1,17 +1,14 @@
 //react components
-import { useState, useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Home() {
+export default function Featured() {
   const [featuredItems, setFeaturedItems] = useState([]);
-
-  const [mainItems, setMainItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);
 
@@ -19,25 +16,17 @@ export default function Home() {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`./dataChunks/mainpage/${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`./dataChunks/featured/${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       data.slice(0, 6)
-      setMainItems(mainItems.concat(data))
-    })
-  }
-
-  function getFeaturedItems(){
-    fetch(`./dataChunks/featured/0.json`).then(res => res.json()).then(data =>{
-      data.splice(-1,1)
       setFeaturedItems(featuredItems.concat(data))
     })
   }
 
   useEffect(() => {
       loadChunk();
-      getFeaturedItems()
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
@@ -48,31 +37,19 @@ export default function Home() {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
-        <Nav />
-        </div>
-        <div className="grid-title">
-          <p>FEATURED ITEMS</p>
-          <Link href="/featured"><a>MORE</a></Link>
-        </div>
-        <div className="item-grid">
-          {featuredItems.map((featured) => (
-            <Card
-              key={Math.floor(Math.random() * 10000)}
-              cardClass={featured.node.cardClass}
-              itemData={featured.node}
-            />
-          ))}
-        </div>
+        <Nav className="nav-container" />
 
         <div className="grid-title">
-          <p>New Discoveries</p>
+          <p>Featured Items</p>
         </div>
         <div className="item-grid">
-          {mainItems.map((mainItem) => (
+          {featuredItems.map((featureditem) => (
             <Card
               key={Math.floor(Math.random() * 10000)}
-              itemData={mainItem.node}
+              cName={`item`}
+              blog={featureditem.blog ? true : false}
+              regularItem={true}
+              itemData={featureditem.node}
             />
           ))}
         </div>
