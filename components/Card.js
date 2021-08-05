@@ -32,6 +32,10 @@ const Card = ({ itemData }) => {
     );
   }
 
+  if(itemData.blogCardImage){
+    imageUrl = itemData.blogCardImage
+  }
+
   return (
     <div className={itemData.cardClass}>
       {blog ? (

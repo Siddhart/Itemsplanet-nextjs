@@ -49,7 +49,7 @@ const Footer = () => {
               </tr>
               <tr>
                 <td>
-                <Link href="/">
+                <Link href="/blogs">
                     <a>Blogs</a>
                   </Link>
                 </td>

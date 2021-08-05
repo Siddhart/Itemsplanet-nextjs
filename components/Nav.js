@@ -101,7 +101,9 @@ const Nav = () => {
         <div className="mobile-main-links">
           <Link href="/categories"><a>Categories</a></Link>
           <br />
-          <a href="/blogs">Blogs</a>
+          <Link href="/blogs">
+            <a>Blogs</a>
+          </Link>
           <br />
           <a href="/saved">Saved</a>
         </div>

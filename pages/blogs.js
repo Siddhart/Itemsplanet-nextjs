@@ -7,8 +7,8 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Featured() {
-  const [featuredItems, setFeaturedItems] = useState([]);
+export default function Blogs() {
+  const [blogItems, setBlogItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);
 
@@ -16,17 +16,17 @@ export default function Featured() {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`./dataChunks/featured/${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`./dataChunks/blogs/${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       data.slice(0, 6)
-      setFeaturedItems(featuredItems.concat(data))
+      setBlogItems(blogItems.concat(data))
     })
   }
 
   useEffect(() => {
       loadChunk();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -40,14 +40,14 @@ export default function Featured() {
         <Nav className="nav-container" />
 
         <div className="grid-title">
-          <p>Featured Items</p>
+          <p>All BLOGS</p>
         </div>
         <div className="item-grid">
-          {featuredItems.map((featureditem) => (
+          {blogItems.map((blogItem) => (
             <Card
-              key={Math.floor(Math.random() * 10000)}
-              cardClass={featureditem.node.cardClass}
-              itemData={featureditem.node}
+            key={Math.floor(Math.random() * 10000)}
+            cardClass={blogItem.node.cardClass}
+            itemData={blogItem.node}
             />
           ))}
         </div>

@@ -12,6 +12,9 @@ const query = gql`
           title
           backgroundImage {
             url
+          }        
+          images(first: 1) {
+            url
           }
         }
       }
@@ -51,6 +54,7 @@ request(GRAPHCMS, query).then((data) => {
     objList.map((obj) => {
       if (obj.node.backgroundImage) {
         obj.node["cardClass"] = "item card_large";
+        obj.node["blogCardImage"] = obj.node.images[0].url
         obj.node["blog"] = true;
       } else {
         obj.node["cardClass"] =
@@ -77,6 +81,7 @@ request(GRAPHCMS, query).then((data) => {
 
     objList.map((obj) => {
       obj.node["cardClass"] = "item card_large";
+      obj.node["blogCardImage"] = obj.node.images[0].url
       obj.node["blog"] = true;
     });
     createChunk(
