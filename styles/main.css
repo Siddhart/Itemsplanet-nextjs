@@ -120,6 +120,9 @@
     margin-right: 45px
 }
 
+.logout{
+    margin-right: 45px
+}
 .pc-nav {
     display: flex
 }
@@ -432,6 +435,18 @@
     color: red
 }
 
+.accept{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 10px;
+}
+
 label{
     margin-right: 10px;
 }
@@ -452,4 +467,14 @@ label{
 
 .already-have-account p a {
     color: #50abff
+}
+
+.sucessMessage{
+    background-color: rgb(154, 236, 154);
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
 }

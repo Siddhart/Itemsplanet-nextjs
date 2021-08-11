@@ -8,7 +8,7 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Home({ saveToUser }) {
+export default function Home({ saveToUser, authenticated }) {
   const [featuredItems, setFeaturedItems] = useState([]);
 
   const [mainItems, setMainItems] = useState([]);
@@ -49,7 +49,7 @@ export default function Home({ saveToUser }) {
       </Head>
       <div className="container">
       <div className="navcontainer">
-        <Nav />
+        <Nav authenticated={authenticated}/>
         </div>
         <div className="grid-title">
           <p>FEATURED ITEMS</p>

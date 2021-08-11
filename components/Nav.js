@@ -1,12 +1,14 @@
 import Head from "next/head";
 import { useState } from "react";
 import Link from "next/link";
+import { useCookies } from "react-cookie"
 import Image from "next/image";
 
 import "../public/logo.png";
 
-const Nav = () => {
+const Nav = ({ authenticated }) => {
   const [searchPath, setSearchPath] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies(['UID']);
 
   //update search path
   function updateSearchPath(e) {
@@ -21,6 +23,11 @@ const Nav = () => {
     } else {
       x.style.display = "none";
     }
+  }
+
+  function logout(){
+    console.log('logout')
+    removeCookie('UID')
   }
 
   return (
@@ -84,12 +91,20 @@ const Nav = () => {
         </div>
 
         <div className="authbuttons pc-nav">
-          <Link href="/signin"><a  className="authbutton signin">
-            Login
-          </a></Link>
-          <Link href="/signup"><a className="authbutton signup">
-            Sign Up
-          </a></Link>
+          {!authenticated ? (
+            <>
+              <Link href="/signin">
+                <a className="authbutton signin">Sign In</a>
+              </Link>
+              <Link href="/signup">
+                <a className="authbutton signup">Sign Up</a>
+              </Link>
+            </>
+          ) : (
+            <><Link href="/">
+              <a onClick={logout} className="authbutton signin logout">Logout</a>
+            </Link></>
+          )}
         </div>
       </div>
 
@@ -99,7 +114,9 @@ const Nav = () => {
         style={{ display: "none" }}
       >
         <div className="mobile-main-links">
-          <Link href="/categories"><a>Categories</a></Link>
+          <Link href="/categories">
+            <a>Categories</a>
+          </Link>
           <br />
           <Link href="/blogs">
             <a>Blogs</a>
@@ -109,12 +126,20 @@ const Nav = () => {
         </div>
         <hr />
         <div className="auth-user-section">
-          <a href="/signin" className="signin">
-            Login
-          </a>
-          <a href="/signup" className="signup">
-            Sign Up
-          </a>
+          {!authenticated ? (
+            <>
+              <Link href="/signin">
+                <a className="signin">Sign In</a>
+              </Link>
+              <Link href="/signup">
+                <a className="signup">Sign Up</a>
+              </Link>
+            </>
+          ) : (
+            <Link href="/">
+              <a onClick={logout} className="signin">Logout</a>
+            </Link>
+          )}
         </div>
       </div>
     </div>
