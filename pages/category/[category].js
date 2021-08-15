@@ -21,7 +21,7 @@ export default function Category({ catName, saveToUser }) {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`./dataChunks/categories/${cName.replace(/ /g, "_")}${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`../dataChunks/categories/${cName.replace(/ /g, "_")}${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       setCategoryItems(categoryItems.concat(data))
