@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "next": "next",
     "dev": "next dev",
     "data": "node generateChunks.js",
     "build": "next build",
