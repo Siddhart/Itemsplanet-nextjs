@@ -111,7 +111,7 @@ const ItemPage = ({ itemPropData, PageURL }) => {
 };
 
 export async function getItemData(itemName) {
-  const cmsURL = process.env.GRAPHCMS;
+  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const ITEMQUERY = `
   query MyQuery {
     itemConnection(where: {title: "${itemName.replace(/_/g, " ")}"}) {

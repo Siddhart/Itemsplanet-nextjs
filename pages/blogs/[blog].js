@@ -91,7 +91,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const cmsURL = process.env.GRAPHCMS;
+  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const QUERY = `query MyQuery {
     blogsConnection(first: 1000) {
       edges {

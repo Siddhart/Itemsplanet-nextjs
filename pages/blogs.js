@@ -18,7 +18,7 @@ export default function Blogs({ saveToUser }) {
   function loadChunk() {
     if (chunk == "none") return;
 
-    fetch(`./dataChunks/blogs/${chunk}.json`)
+    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public//dataChunks/blogs/${chunk}.json`)
       .then((res) => res.json())
       .then((data) => {
         setChunk(data[data.length - 1].nextChunk);

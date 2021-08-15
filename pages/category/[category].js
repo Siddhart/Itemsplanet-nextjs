@@ -21,7 +21,7 @@ export default function Category({ catName, saveToUser }) {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`../dataChunks/categories/${cName.replace(/ /g, "_")}${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public/dataChunks/categories/${cName.replace(/ /g, "_")}${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       setCategoryItems(categoryItems.concat(data))
@@ -77,7 +77,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const cmsURL = process.env.GRAPHCMS;
+  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const QUERY = `query MyQuery {
     categoriesConnection(first: 2500) {
       edges {
