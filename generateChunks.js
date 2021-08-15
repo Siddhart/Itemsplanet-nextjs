@@ -9,7 +9,7 @@ const SupabaseService = process.env.SERVICE;
 
 const fs = require("fs");
 const { request, gql } = require("graphql-request");
-const GRAPHCMS = require("./next.config").env.GRAPHCMS;
+const GRAPHCMS = 'https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master';
 
 
 const supabase = createClient(SupabaseURL, SupabaseService);
