@@ -18,7 +18,7 @@ export default function Featured({saveToUser}) {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public/dataChunks/featured/${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`./dataChunks/featured/${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       data.slice(0, 6)
@@ -28,7 +28,7 @@ export default function Featured({saveToUser}) {
 
   useEffect(() => {
       loadChunk();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
