@@ -76,7 +76,7 @@ export default function Saved({ saveToUser }) {
           <p>SAVED</p>
         </div>
         {savedItems.length <= 0 ? (
-            <div style={{margin: "auto", width: "fit-content", marginTop: "75px"}}><p>You have no saved items. To save an item click on the heart icon when hovering over a item card.</p></div>
+            <div style={{margin: "auto", width: "75%", marginTop: "75px", textAlign: "center"}}><p>You have no saved items. To save an item click on the heart icon when hovering over a item card.</p></div>
         ) : (
           ""
         )}

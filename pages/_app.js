@@ -13,7 +13,7 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 
 //css files
-import "../styles/cleanup.css";
+import "../styles/cleanup.min.css";
 
 function MyApp({ Component, pageProps }) {
   const [cookies, setCookie, removeCookie] = useCookies([
