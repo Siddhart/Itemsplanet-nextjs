@@ -17,4 +17,4 @@ For this project I looked into the [JAM stack](https://jamstack.org/). Its a pro
 
 ## To-Do list Long Term
 - [ ] Remove all the shitcode
-- [ ] Fix the css(I thought it was a good idea to split up all the css for every page. butttt it really wasn't a good idea so i have to redo that part)
+- [X] Fix the css(I thought it was a good idea to split up all the css for every page. butttt it really wasn't a good idea so i have to redo that part)
