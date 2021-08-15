@@ -1,18 +1,21 @@
-//supabase variables
+//supabase
 import { createClient } from "@supabase/supabase-js";
+
+//supabase variables
 const SupabaseURL = require("../next.config").env.SUPABASEURL;
 const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
 
 //react components
 import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+
+//next components
 import Head from "next/head";
-import Link from "next/link";
 
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
-import { useCookies } from "react-cookie";
 
 export default function Saved({ saveToUser }) {
   const [cookies, setCookie, removeCookie] = useCookies([

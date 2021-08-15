@@ -1,15 +1,18 @@
-//react and nextjs components
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+//react components
+import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
-import Link from "next/link";
 
-import { request } from "graphql-request";
+//next components
+import Link from "next/link";
 import Head from "next/head";
 
+//components
 import Nav from "/components/Nav";
 import Footer from "/components/Footer";
 import SmallImage from "/components/SmallImage";
+
+//graphql
+import { request } from "graphql-request";
 
 const ItemPage = ({ itemPropData, PageURL }) => {
   const [itemData, setItemData] = useState(itemPropData);

@@ -1,15 +1,16 @@
-//react and nextjs components
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+//react components
+import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
-import Link from "next/link";
 
-import { request } from "graphql-request";
+//next components
 import Head from "next/head";
 
+//components
 import Nav from "/components/Nav";
 import Footer from "/components/Footer";
-import SmallImage from "/components/SmallImage";
+
+//graphql
+import { request } from "graphql-request";
 
 const BlogPage = ({ blogPropData, PageURL }) => {
   const [blogData, setItemData] = useState(blogPropData);
@@ -32,7 +33,6 @@ const BlogPage = ({ blogPropData, PageURL }) => {
         </div>
 
         <div className="blog-content">
-
             <div className="title-and-desc">
                 <h1 className="blog-title">{blogData.title.toUpperCase()}</h1>
                 <p className="blog-last-edited">{blogData.publishedBy.createdAt.slice(0,10)}</p>
@@ -100,12 +100,9 @@ export async function getStaticPaths() {
         }
       }
     }
-  }
-  
-  `;
+  }`;
 
   const res = await request(cmsURL, QUERY);
-
   const paths = res.blogsConnection.edges.map((blog) => {
     return {
       params: {

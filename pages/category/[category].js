@@ -1,16 +1,18 @@
 //react components
-import Head from "next/head";
 import { useState, useEffect } from "react";
+
+//next components
+import Head from "next/head";
 
 //components
 import Nav from "../../components/Nav";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 
+//grahql
 import { request } from "graphql-request";
 
 export default function Category({ catName, saveToUser }) {
-
   const [cName, setCName] = useState(catName)
   const [categoryItems, setCategoryItems] = useState([]);
   const [chunk, setChunk] = useState(0);
@@ -24,7 +26,6 @@ export default function Category({ catName, saveToUser }) {
       data.splice(-1,1)
       setCategoryItems(categoryItems.concat(data))
     })
-
   }
 
   useEffect(() => {

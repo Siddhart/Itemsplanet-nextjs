@@ -1,6 +1,8 @@
 //react components
-import Head from "next/head";
 import { useState, useEffect } from "react";
+
+//next components
+import Head from "next/head";
 
 //components
 import Nav from "../components/Nav";

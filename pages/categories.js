@@ -1,11 +1,12 @@
 //react components
+import { useState, useEffect } from "react";
+
+//next components
 import Head from "next/head";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 //components
 import Nav from "../components/Nav";
-import Card from "../components/Card";
 import Footer from "../components/Footer";
 
 export default function CategoryPage() {

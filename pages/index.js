@@ -1,5 +1,7 @@
 //react components
 import { useState, useEffect } from "react";
+
+//next components
 import Head from "next/head";
 import Link from "next/link";
 

@@ -1,14 +1,17 @@
 //react components
-import Head from "next/head";
 import { useState, useEffect } from "react";
+
+//next components
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
+//graphql
 import { request } from "graphql-request";
-import router, { useRouter } from "next/router";
 
 export default function Search({ saveToUser, q }) {
   const [searchQuery, setSearchQuery] = useState("");

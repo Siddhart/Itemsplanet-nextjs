@@ -1,18 +1,22 @@
 //supabase
 import { createClient } from "@supabase/supabase-js";
 
+//supabase variables
+const SupabaseURL = require("../next.config").env.SUPABASEURL;
+const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
+
 //react components
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react";
 import { useCookies } from "react-cookie";
+
+//next components
+import { useRouter } from "next/router";
 
 //components
 import Nav from "../components/Nav";
 import Link from "next/link";
 import Head from "next/head";
 
-const SupabaseURL = require("../next.config").env.SUPABASEURL;
-const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
 
 export default function SignIN() {
   const [email, setEmail] = useState("");

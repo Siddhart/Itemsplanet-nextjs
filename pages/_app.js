@@ -8,6 +8,8 @@ const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
 //react components
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+
+//next components
 import { useRouter } from "next/router";
 
 //css files
