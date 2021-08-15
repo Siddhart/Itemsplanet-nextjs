@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+
+const WorkURL = 'https://itemsplanet-nextjs.vercel.app'
 
 const Card = ({ itemData, saveToUser }) => {
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -41,12 +44,8 @@ const Card = ({ itemData, saveToUser }) => {
     }else{
       imageUrl = itemData.image
     }
-    // itemUrl = `https://www.itemsplanet.com/items/${itemData.title}`.replace(
-    //   / /g,
-    //   "_"
-    // );
 
-    itemUrl = `http://localhost:3000/items/${itemData.title}`.replace(
+    itemUrl = `${WorkURL}/items/${itemData.title}`.replace(
       / /g,
       "_"
     );
@@ -58,11 +57,8 @@ const Card = ({ itemData, saveToUser }) => {
     }else{
       imageUrl = itemData.image
     }
-    // itemUrl = `https://www.itemsplanet.com/blogs/${itemData.title}`.replace(
-    //   / /g,
-    //   "_"
-    // );
-    itemUrl = `http://localhost:3000/blogs/${itemData.title}`.replace(
+
+    itemUrl = `${WorkURL}/blogs/${itemData.title}`.replace(
       / /g,
       "_"
     );
@@ -85,11 +81,13 @@ const Card = ({ itemData, saveToUser }) => {
       ) : (
         ""
       )}
-      <a href={itemUrl}>
+      <Link href={itemUrl}>
+      <a>
         <div className="item-image-container" style={{ position: "relative" }}>
           <Image src={imageUrl} alt={itemData.title} layout="fill" />
         </div>
       </a>
+      </Link>
       <button
         onClick={() => {
           saveToUser(itemData.id);

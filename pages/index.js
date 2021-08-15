@@ -21,7 +21,7 @@ export default function Home({ saveToUser }) {
   function loadChunk() {
     if(chunk == 'none') return
 
-    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public/dataChunks/mainpage/${chunk}.json`).then(res => res.json()).then(data =>{
+    fetch(`./dataChunks/mainpage/${chunk}.json`).then(res => res.json()).then(data =>{
       setChunk(data[data.length - 1].nextChunk)
       data.splice(-1,1)
       data.slice(0, 6)
