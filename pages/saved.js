@@ -38,7 +38,6 @@ export default function Saved({ saveToUser }) {
           return item;
         });
 
-        console.log(savedItemQuery);
 
         const { data, error } = await supabase
           .from("search")
@@ -49,7 +48,6 @@ export default function Saved({ saveToUser }) {
           return null;
         }
 
-        console.log(data);
         setSavedItems(data);
       }else{
         setSavedItems([])
@@ -58,8 +56,6 @@ export default function Saved({ saveToUser }) {
 
     getSaved();
   }, [cookies.SL, cookies.ID]);
-
-  console.log(savedItems.length)
 
   return (
     <>

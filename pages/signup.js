@@ -58,7 +58,6 @@ export default function SignIN() {
   }
 
   async function createAccount(e, p) {
-    console.log(e, p);
     await supabase.auth.signUp({
       email: e,
       password: p,
