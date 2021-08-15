@@ -3,7 +3,8 @@ require("dotenv").config();
 
 //supabase variables
 const { createClient }  =  require("@supabase/supabase-js");
-const SupabaseURL = require("./next.config").env.SUPABASEURL;
+// const SupabaseURL = require("./next.config").env.SUPABASEURL;
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
 const SupabaseService = process.env.SERVICE;
 
 const fs = require("fs");
