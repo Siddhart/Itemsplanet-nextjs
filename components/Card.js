@@ -1,13 +1,3 @@
-//supabase
-import { createClient } from "@supabase/supabase-js";
-
-//supabase variables
-const SupabaseURL = require("../next.config").env.SUPABASEURL;
-const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
-
-//supabase
-const supabase = createClient(SupabaseURL, PublicAnonKey);
-
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";

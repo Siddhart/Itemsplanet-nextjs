@@ -2,8 +2,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 //supabase variables
-const SupabaseURL = require("../next.config").env.SUPABASEURL;
-const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
+const PublicAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE"
 
 //react components
 import React, { useState, useEffect } from "react";

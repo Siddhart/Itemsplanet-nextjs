@@ -2,14 +2,15 @@
 require("dotenv").config();
 
 //supabase variables
-const { createClient }  =  require("@supabase/supabase-js");
+const { createClient } = require("@supabase/supabase-js");
+
 // const SupabaseURL = require("./next.config").env.SUPABASEURL;
-const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
 const SupabaseService = process.env.SERVICE;
 
 const fs = require("fs");
 const { request, gql } = require("graphql-request");
-const GRAPHCMS = 'https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master';
+const GRAPHCMS = process.env.GRAPHCMS
 
 
 const supabase = createClient(SupabaseURL, SupabaseService);
