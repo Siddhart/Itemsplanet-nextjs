@@ -30,7 +30,7 @@ export default function Home({ saveToUser }) {
   }
 
   function getFeaturedItems(){
-    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public//dataChunks/featured/0.json`).then(res => res.json()).then(data =>{
+    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public/dataChunks/featured/0.json`).then(res => res.json()).then(data =>{
       data.splice(-1,1)
       setFeaturedItems(featuredItems.concat(data))
     })

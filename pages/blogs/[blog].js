@@ -50,7 +50,7 @@ const BlogPage = ({ blogPropData, PageURL }) => {
 };
 
 export async function getBlogData(blogName) {
-  const cmsURL = process.env.GRAPHCMS;
+  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const BLOGQUERY = `
   query MyQuery {
     blog(where: {title: "${blogName.replace(/_/g, " ")}"}) {

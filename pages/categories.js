@@ -13,7 +13,7 @@ export default function CategoryPage() {
   const [categories, setCategories] = useState([]);
 
   function initPage() {
-    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public//dataChunks/categories/mainPage.json`)
+    fetch(`https://raw.githubusercontent.com/Siddhart/Itemsplanet-nextjs/main/public/dataChunks/categories/mainPage.json`)
       .then((res) => res.json())
       .then((data) => {
         setCategories(categories.concat(data));

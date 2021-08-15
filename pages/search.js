@@ -20,40 +20,41 @@ export default function Search({ saveToUser, q }) {
 
   const router = useRouter();
 
-  useEffect(async () => {
-    setSearchedItems([]);
-
-    setSearchQuery(q);
-
-    if(searchQuery.length < 3){
+  useEffect(() => {
+    async function searchFunction() {
       setSearchedItems([]);
-      return null
-    }
+      setSearchQuery(q);
+      if (searchQuery.length < 3) {
+        setSearchedItems([]);
+        return null;
+      }
 
-    if (searchQuery) {
-      const SEARCHQ = `query MyQuery {
-          itemConnection(where: {title_contains: "${searchQuery}"}) {
-            edges {
-              node {
-                id
-                title
-                images(first: 1) {
+      if (searchQuery) {
+        const SEARCHQ = `query MyQuery {
+            itemConnection(where: {title_contains: "${searchQuery}"}) {
+              edges {
+                node {
                   id
-                  url
+                  title
+                  images(first: 1) {
+                    id
+                    url
+                  }
+                  featured
                 }
-                featured
               }
             }
-          }
-        }`;
+          }`;
 
-      let res = await request(
-        "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master",
-        SEARCHQ
-      );
-      setSearchedItems([].concat(res.itemConnection.edges));
-      setSearchAmount(res.itemConnection.edges.length);
+        let res = await request(
+          "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master",
+          SEARCHQ
+        );
+        setSearchedItems([].concat(res.itemConnection.edges));
+        setSearchAmount(res.itemConnection.edges.length);
+      }
     }
+    searchFunction();
   }, [searchQuery, router]);
 
   return (
@@ -77,15 +78,19 @@ export default function Search({ saveToUser, q }) {
             <p>PLEASE ENTER AT LEAST 3 CHARACTERS</p>
           )}
         </div>
-        {searchQuery.length >= 3 ? <div className="item-grid">
-          {searchedItems.map((item) => (
-            <Card
-              key={item.node.id}
-              itemData={item.node}
-              saveToUser={saveToUser}
-            />
-          ))}
-        </div> : ""}
+        {searchQuery.length >= 3 ? (
+          <div className="item-grid">
+            {searchedItems.map((item) => (
+              <Card
+                key={item.node.id}
+                itemData={item.node}
+                saveToUser={saveToUser}
+              />
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
 
         {searchQuery.length >= 3 ? <Footer /> : ""}
       </div>
