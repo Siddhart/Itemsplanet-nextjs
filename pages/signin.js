@@ -1,57 +1,54 @@
-
-//firebase
-import firebase from "../public/firebase/Firebase";
+//supabase
+import { createClient } from "@supabase/supabase-js";
 
 //react components
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/router'
-import { useCookies } from "react-cookie"
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
 
 //components
 import Nav from "../components/Nav";
 import Link from "next/link";
 import Head from "next/head";
 
+const SupabaseURL = require("../next.config").env.SUPABASEURL;
+const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
+
 export default function SignIN() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [keepSignedIn, setKeepSignedIn] = useState(false);
 
-  const [errorMessage, setErrorMessage] = useState('');
-  const router = useRouter()
+  const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
 
-  const [cookies, setCookie, removeCookie] = useCookies(['UID']);
+  const [cookies, setCookie, removeCookie] = useCookies(["UID"]);
 
-  function signIn() {
-    setErrorMessage('')
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        console.log(user)
-        if(!user.emailVerified){
-          user.sendEmailVerification()
-          setErrorMessage('Please verify your email before you login.')
-          return null
-        }
+  const supabase = createClient(SupabaseURL, PublicAnonKey);
 
-        console.log('signed in: ' + keepSignedIn)
-        //update the cookies
-        if(keepSignedIn == true){
-          setCookie('UID', user.uid, {maxAge: 15778463})//6 months
-        }else{
-          setCookie('UID', user.uid, {maxAge: 3600})//1 hour
-        }
-        router.push('/')
-      })
-      .catch((error) => {
-        console.log(error)
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        setErrorMessage('The email or password is incorrect.')
-      });
+  async function signIn() {
+    setErrorMessage("");
+
+    const { user, session, error } = await supabase.auth.signIn({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      setErrorMessage(error.message);
+      return null
+    }
+
+    setCookie("UID", session.access_token, { maxAge: 518400 });
+    setCookie("RTK", session.refresh_token, { maxAge: 518400 });
+    setCookie("ID", session.user.id, { maxAge: 518400 });
+
+    if (keepSignedIn == true) {
+      setCookie("EXP", true, { maxAge: 518400 });//we will give em 6 days
+    } else {
+      setCookie("EXP", true, { maxAge: 10800 }); // yehhh we will give the users like 3 hours untill it expires. Read somewhere that on session end on ios means that it will expire when the user goes to another tab. We dont want that huh naah
+    }
+    router.push("/");//back to the home page boi
   }
 
   return (
@@ -63,7 +60,7 @@ export default function SignIN() {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container" />
+        <Nav className="nav-container"/>
 
         <div className="auth">
           <p className="auth-title">SIGN IN</p>
@@ -103,9 +100,13 @@ export default function SignIN() {
               <label>Keep me signed in</label>
             </div>
           </div>
-          {errorMessage != '' ? <div className="auth-message">
-            <p>{errorMessage}</p>
-          </div> : ''}
+          {errorMessage != "" ? (
+            <div className="auth-message">
+              <p>{errorMessage}</p>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="auth-action-button">
             <button onClick={signIn}>SIGN IN</button>
           </div>

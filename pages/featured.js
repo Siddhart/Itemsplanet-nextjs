@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Featured({ saveToUser }) {
+export default function Featured({saveToUser}) {
   const [featuredItems, setFeaturedItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);

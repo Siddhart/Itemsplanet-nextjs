@@ -14,18 +14,20 @@ export default function Blogs({ saveToUser }) {
 
   //load the next chunk
   function loadChunk() {
-    if(chunk == 'none') return
+    if (chunk == "none") return;
 
-    fetch(`./dataChunks/blogs/${chunk}.json`).then(res => res.json()).then(data =>{
-      setChunk(data[data.length - 1].nextChunk)
-      data.splice(-1,1)
-      data.slice(0, 6)
-      setBlogItems(blogItems.concat(data))
-    })
+    fetch(`./dataChunks/blogs/${chunk}.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setChunk(data[data.length - 1].nextChunk);
+        data.splice(-1, 1);
+        data.slice(0, 6);
+        setBlogItems(blogItems.concat(data));
+      });
   }
 
   useEffect(() => {
-      loadChunk();
+    loadChunk();
   }, []);
 
   return (
@@ -45,17 +47,21 @@ export default function Blogs({ saveToUser }) {
         <div className="item-grid">
           {blogItems.map((blogItem) => (
             <Card
-            key={blogItem.node.id}
-            cardClass={blogItem.node.cardClass}
-            itemData={blogItem.node}
-            saveToUser={saveToUser}
+              key={blogItem.node.id}
+              cardClass={blogItem.node.cardClass}
+              itemData={blogItem.node}
+              saveToUser={saveToUser}
             />
           ))}
         </div>
 
-        {chunk != 'none' ? <div className="loadMore-button">
-          <button onClick={loadChunk}>Load More</button>
-        </div> : ''}
+        {chunk != "none" ? (
+          <div className="loadMore-button">
+            <button onClick={loadChunk}>Load More</button>
+          </div>
+        ) : (
+          ""
+        )}
 
         <Footer />
       </div>

@@ -1,14 +1,31 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useCookies } from "react-cookie"
+import { useCookies } from "react-cookie";
 import Image from "next/image";
 
 import "../public/logo.png";
 
-const Nav = ({ authenticated }) => {
+const Nav = () => {
   const [searchPath, setSearchPath] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(['UID']);
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "UID",
+    "RTK",
+    "AUTH",
+    "EXP",
+  ]);
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    async function checkCookieAuth() {
+      if (cookies.UID && cookies.UID != "") {
+        setAuthenticated(true);
+      } else {
+        setAuthenticated(false);
+      }
+    }
+    checkCookieAuth();
+  }, [cookies]);
 
   //update search path
   function updateSearchPath(e) {
@@ -25,9 +42,13 @@ const Nav = ({ authenticated }) => {
     }
   }
 
-  function logout(){
-    console.log('logout')
-    removeCookie('UID')
+  function logout() {
+    setCookie("AUTH", false);
+    setCookie("ID", "");
+    setCookie("UID", "");
+    setCookie("SL", "");
+    setCookie("RTK", "");
+    setCookie("EXP", false);
   }
 
   return (
@@ -64,12 +85,11 @@ const Nav = ({ authenticated }) => {
         </div>
 
         <div className="searchbar">
-          <a
-            href={"https://www.itemsplanet.com/search/" + searchPath}
-            className="searchbutton"
-          >
-            <i className="fas fa-search"></i>
-          </a>
+          <Link href={"/search?q=" + searchPath}>
+            <a className="searchbutton">
+              <i className="fas fa-search"></i>
+            </a>
+          </Link>
           <input
             id="searchbar"
             placeholder="Search..."
@@ -80,18 +100,22 @@ const Nav = ({ authenticated }) => {
           />
         </div>
 
-        <div className="saved_button pc-nav">
-          <div className="nav_button">
-            <Link href="/saved">
-              <a>
-                <i className="fas fa-star"></i>
-              </a>
-            </Link>
+        {authenticated == true ? (
+          <div className="saved_button pc-nav">
+            <div className="nav_button">
+              <Link href="/saved">
+                <a>
+                  <i className="fas fa-star"></i>
+                </a>
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
 
-        <div className="authbuttons pc-nav">
-          {!authenticated ? (
+        <div className="authbuttons pc-nav" style={{ marginLeft: "10px" }}>
+          {authenticated == false ? (
             <>
               <Link href="/signin">
                 <a className="authbutton signin">Sign In</a>
@@ -101,9 +125,13 @@ const Nav = ({ authenticated }) => {
               </Link>
             </>
           ) : (
-            <><Link href="/">
-              <a onClick={logout} className="authbutton signin logout">Logout</a>
-            </Link></>
+            <>
+              <Link href="/">
+                <a onClick={logout} className="authbutton signin logout">
+                  Logout
+                </a>
+              </Link>
+            </>
           )}
         </div>
       </div>
@@ -122,7 +150,9 @@ const Nav = ({ authenticated }) => {
             <a>Blogs</a>
           </Link>
           <br />
-          <a href="/saved">Saved</a>
+          <Link href="/saved">
+            <a>Saved</a>
+          </Link>
         </div>
         <hr />
         <div className="auth-user-section">
@@ -137,7 +167,9 @@ const Nav = ({ authenticated }) => {
             </>
           ) : (
             <Link href="/">
-              <a onClick={logout} className="signin">Logout</a>
+              <a onClick={logout} className="signin">
+                Logout
+              </a>
             </Link>
           )}
         </div>

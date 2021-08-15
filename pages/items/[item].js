@@ -107,39 +107,6 @@ const ItemPage = ({ itemPropData, PageURL }) => {
   );
 };
 
-// ItemPage.getInitialProps = async (ctx) => {
-//   console.log(ctx.req.headers.referer);
-
-//   const cmsURL = process.env.GRAPHCMS;
-//   const ITEMQUERY = `
-//   query MyQuery {
-//     itemConnection(where: {title: "${ctx.query.item.replace(/_/g, " ")}"}) {
-//       edges {
-//         node {
-//           title
-//           images(first: 100) {
-//             url
-//             handle
-//           }
-//           featured
-//           updatedAt
-//           longDescription {
-//             html
-//           }
-//           affiliateUrl
-//         }
-//       }
-//     }
-//   }
-//   `;
-
-//   let res = await request(cmsURL, ITEMQUERY);
-//   return {
-//     data: res.itemConnection.edges[0].node,
-//     PageURL: ctx.req.headers.referer,
-//   };
-// };
-
 export async function getItemData(itemName) {
   const cmsURL = process.env.GRAPHCMS;
   const ITEMQUERY = `

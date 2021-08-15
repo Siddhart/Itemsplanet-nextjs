@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.21.0",
     "cookie": "^0.4.1",
     "dotenv": "^10.0.0",
     "firebase": "^8.8.1",

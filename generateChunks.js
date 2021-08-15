@@ -1,6 +1,13 @@
+//supabase variables
+const { createClient }  =  require("@supabase/supabase-js");
+const SupabaseURL = require("./next.config").env.SUPABASEURL;
+const SupabaseService = require("./next.config").env.SERVICE;
+
 const fs = require("fs");
 const { request, gql } = require("graphql-request");
 const GRAPHCMS = require("./next.config").env.GRAPHCMS;
+
+const supabase = createClient(SupabaseURL, SupabaseService);
 
 const amountPerChunk = 6;
 
@@ -48,7 +55,7 @@ const query = gql`
 
 const classArray = ["item card_medium", "item card_large"];
 
-request(GRAPHCMS, query).then((data) => {
+request(GRAPHCMS, query).then(async (data) => {
   let totalChunkArray = data.itemConnection.edges
     .concat(data.blogsConnection.edges)
     .chunk(amountPerChunk);
@@ -74,6 +81,42 @@ request(GRAPHCMS, query).then((data) => {
       nextChunk
     );
   });
+
+  //save all items in supabase database
+
+  let totalObjectsToDB = data.itemConnection.edges.concat(data.blogsConnection.edges)
+
+  let DBObj = totalObjectsToDB.map(obj =>{
+    let DbClass;
+    let DBImage;
+    let DBBlog;
+
+    if (obj.node.backgroundImage) {
+      DbClass = "item card_large";
+      DBBlog = true
+    } else {
+      DbClass = classArray[Math.floor(Math.random() * classArray.length)];
+      DBBlog = false
+    }
+
+    DBImage = obj.node.images[0].url
+
+    return{
+      "id": obj.node.id,
+      "title": obj.node.title,
+      "image":DBImage,
+      "cardClass": DbClass,
+      "blog": DBBlog
+    }
+  })
+
+  await supabase
+  .from('search')
+  .delete("*")
+
+  await supabase
+  .from('search')
+  .insert(DBObj)
 
   //create blog chunks
   let totalBlogChunkArray = data.blogsConnection.edges.chunk(amountPerChunk);
@@ -134,6 +177,10 @@ request(GRAPHCMS, query).then((data) => {
           node {
             id
             title
+            images(first: 1) {
+              url
+            }
+            featured
           }
         }
       }
@@ -146,6 +193,11 @@ request(GRAPHCMS, query).then((data) => {
         const nextChunk =
           chunkNum + 1 != totalChunkArray.length ? chunkNum + 1 : "none";
     
+          objList.map((obj) => {
+            obj.node["cardClass"] = classArray[Math.floor(Math.random() * classArray.length)];
+            obj.node["blog"] = false;
+          });
+
         createChunk(
           `./public/dataChunks/categories/${catName.toString() + chunkNum.toString()}.json`,
           objList,

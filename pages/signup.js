@@ -1,5 +1,5 @@
-//firebase
-import firebase from "../public/firebase/Firebase";
+//supabase
+import { createClient } from "@supabase/supabase-js";
 
 //react components
 import Head from "next/head";
@@ -10,7 +10,10 @@ import Nav from "../components/Nav";
 
 import Link from "next/link";
 
-export default function SignIN({ firebaseFunction }) {
+const SupabaseURL = require("../next.config").env.SUPABASEURL;
+const PublicAnonKey = require("../next.config").env.PUBLICANONKEY;
+
+export default function SignIN() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -18,11 +21,13 @@ export default function SignIN({ firebaseFunction }) {
 
   const [errorMessage, setErrormessage] = useState("");
 
-  const [successMessage, setSuccessMessage] = useState(false)
+  const [successMessage, setSuccessMessage] = useState(false);
+
+  const supabase = createClient(SupabaseURL, PublicAnonKey);
 
   function checkCredentials() {
     // firebaseFunction.createUser();
-    setSuccessMessage(false)
+    setSuccessMessage(false);
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (email.match(regexEmail) == null) {
       setErrormessage("Please enter a valid e-mail adress");
@@ -52,26 +57,14 @@ export default function SignIN({ firebaseFunction }) {
     createAccount(email, password);
   }
 
-  function createAccount(e, p) {
+  async function createAccount(e, p) {
     console.log(e, p);
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(e, p)
-      .then((userCredential) => {
-        var user = userCredential.user;
-        user.sendEmailVerification()
-        console.log(user);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        if (errorCode == "auth/email-already-in-use") {
-          errorMessage("");
-        }
-      });
+    await supabase.auth.signUp({
+      email: e,
+      password: p,
+    });
 
-    setSuccessMessage(true)
-
+    setSuccessMessage(true);
 
     setEmail("");
     setPassword("");
@@ -88,16 +81,20 @@ export default function SignIN({ firebaseFunction }) {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container" />
+        <Nav className="nav-container"/>
 
         <div className="auth">
           <p className="auth-title">SIGN UP</p>
-          {successMessage ? <div className="sucessMessage">
-            <p>
-              Registration successfull. To verify your account click on the link
-              in your e-mail.
-            </p>
-          </div> : ''}
+          {successMessage ? (
+            <div className="sucessMessage">
+              <p>
+                Registration successfull. To verify your account click on the
+                link in your e-mail.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="inputfields">
             <div className="input-with-icon">
               <i className="fas fa-envelope"></i>
