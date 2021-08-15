@@ -31,7 +31,8 @@ export default function SignIN() {
   function checkCredentials() {
     // firebaseFunction.createUser();
     setSuccessMessage(false);
-    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    // let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let regexEmail = /^\S+@\S+\.\S+$/;
     if (email.match(regexEmail) == null) {
       setErrormessage("Please enter a valid e-mail adress");
       return null;
