@@ -10,54 +10,53 @@
     --card_medium: 28;
     --card_featured: 33;
     --card_large: 36;
-    --card_vertical_spacing: 25px
+    --card_vertical_spacing: 25px;
 }
-
 
 body, html {
     overflow-x: hidden;
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 ::-webkit-scrollbar {
-    width: 5px
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
     background: #dcdcdc;
     border-radius: 5px;
-    z-index: 100
+    z-index: 100;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #464646;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555
+    background: #555;
 }
 
 * {
     font-family: Poppins, sans-serif;
     padding: 0;
-    margin: 0
+    margin: 0;
 }
 
 .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%
+    height: 100%;
 }
 
 .blog-content {
     width: 800px;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
 .blog-main-image {
@@ -65,17 +64,17 @@ body, html {
     position: relative;
     width: 100%;
     height: 400px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .blog-main-image img {
-    width: 100%
+    width: 100%;
 }
 
 .blog-title {
     font-size: 50px;
     font-weight: bolder;
-    text-align: center
+    text-align: center;
 }
 
 @media screen and (max-width:1700px) {
@@ -84,7 +83,7 @@ body, html {
         grid-template-columns: repeat(2, 490px);
         margin-left: auto;
         margin-right: auto;
-        grid-gap: 25px
+        grid-gap: 25px;
     }
 }
 
@@ -102,7 +101,7 @@ body, html {
         grid-template-columns: repeat(2, 437px);
         margin-left: auto;
         margin-right: auto;
-        grid-gap: 25px
+        grid-gap: 25px;
     }
 }
 
@@ -136,7 +135,7 @@ body, html {
         position: relative;
         width: 100%;
         height: 250px;
-        overflow: hidden
+        overflow: hidden;
     }
 }
 
@@ -170,7 +169,7 @@ body, html {
         position: relative;
         width: 100%;
         height: 225px;
-        overflow: hidden
+        overflow: hidden;
     }
 }
 
@@ -180,7 +179,7 @@ body, html {
     min-height: 500px;
     display: flex;
     margin-top: 110px;
-    margin-bottom: 100px
+    margin-bottom: 100px;
 }
 
 .item-main-image {
@@ -190,11 +189,11 @@ body, html {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, .301);
-    text-align: center
+    text-align: center;
 }
 
 .item-main-image img {
-    height: 100%
+    height: 100%;
 }
 
 @media screen and (max-width:1700px) {
@@ -207,7 +206,7 @@ body, html {
         width: inherit;
         overflow: hidden;
         width: 318px;
-        height: 318px
+        height: 318px;
     }
 }
 
@@ -228,7 +227,7 @@ body, html {
     }
     .item-main-image {
         width: 360px;
-        height: 360px
+        height: 360px;
     }
 }
 
@@ -242,7 +241,7 @@ body, html {
         width: inherit;
         overflow: hidden;
         width: 262px;
-        height: 262px
+        height: 262px;
     }
 }
 
@@ -256,11 +255,9 @@ body, html {
         width: inherit;
         overflow: hidden;
         width: 350px;
-        height: 350px
+        height: 350px;
     }
 }
-
-
 
 .item-grid {
     margin: 0;
@@ -270,27 +267,27 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--card_width));
     grid-auto-rows: var(--row_increment);
-    justify-content: center
+    justify-content: center;
 }
 
 .item {
     padding: 0;
-    margin: 15px 10px
+    margin: 15px 10px;
 }
 
 .category_card {
     grid-row-end: span var(--category_card);
-    margin-bottom: var(--card_vertical_spacing)
+    margin-bottom: var(--card_vertical_spacing);
 }
 
 .card_featured {
     grid-row-end: span var(--card_featured);
-    margin-bottom: var(--card_vertical_spacing)
+    margin-bottom: var(--card_vertical_spacing);
 }
 
 .card_large {
     grid-row-end: span var(--card_large);
-    margin-bottom: var(--card_vertical_spacing)
+    margin-bottom: var(--card_vertical_spacing);
 }
 
 .item-image-container {
@@ -298,24 +295,24 @@ body, html {
     height: 100%;
     background-color: #000;
     overflow: hidden;
-    border-radius: var(--card_border_radius)
+    border-radius: var(--card_border_radius);
 }
 
 .item-image-container img {
     height: 100%;
-    width: 275px
+    width: 275px;
 }
 
 .category_card a .item-image-container img {
     height: auto;
     width: 100%;
-    opacity: .25
+    opacity: .25;
 }
 
 .item-title {
     text-align: center;
     font-weight: 700;
-    margin-top: 15px
+    margin-top: 15px;
 }
 
 .category {
@@ -325,11 +322,11 @@ body, html {
     margin-right: auto;
     color: #fff;
     font-size: 26px;
-    font-weight: 900
+    font-weight: 900;
 }
 
 .category p {
-    opacity: 1
+    opacity: 1;
 }
 
 .grid-title {
@@ -341,12 +338,12 @@ body, html {
     margin-left: auto;
     margin-right: auto;
     margin-top: 135px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
 .grid-title p {
     font-weight: 900;
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 .grid-title a {
@@ -359,12 +356,12 @@ body, html {
     text-decoration: none;
     border-radius: 100px;
     padding: 2px 10px 2px 10px;
-    right: 0
+    right: 0;
 }
 
 .item:hover>.savebutton {
     opacity: 1;
-    z-index: 5
+    z-index: 5;
 }
 
 .blog {
@@ -380,9 +377,9 @@ body, html {
     margin-left: 10px;
     margin-right: auto;
     margin-top: 10px;
-    border-radius: 100px
+    border-radius: 100px;
 }
 
 .blog i {
-    color: #333
+    color: #333;
 }

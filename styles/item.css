@@ -10,7 +10,7 @@
     --card_medium: 28;
     --card_featured: 33;
     --card_large: 36;
-    --card_vertical_spacing: 25px
+    --card_vertical_spacing: 25px;
 }
 
 body, html {
@@ -18,45 +18,45 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 ::-webkit-scrollbar {
-    width: 5px
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
     background: #dcdcdc;
     border-radius: 5px;
-    z-index: 100
+    z-index: 100;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #464646;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555
+    background: #555;
 }
 
 * {
     font-family: Poppins, sans-serif;
     padding: 0;
-    margin: 0
+    margin: 0;
 }
 
 .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%
+    height: 100%;
 }
 
 .blog-content {
     width: 800px;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
 
 .blog-main-image {
@@ -64,29 +64,29 @@ body, html {
     position: relative;
     width: 100%;
     height: 400px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .blog-main-image img {
-    width: 100%
+    width: 100%;
 }
 
 .blog-title {
     font-size: 50px;
     font-weight: bolder;
-    text-align: center
+    text-align: center;
 }
 
 .blog-desc {
     font-size: 25px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .blog-text-content {
     text-align: left;
     width: 100%;
     margin-top: 50px;
-    padding-bottom: 50px
+    padding-bottom: 50px;
 }
 
 @media screen and (max-width:1025px) {
@@ -96,7 +96,7 @@ body, html {
         width: inherit;
         overflow: hidden;
         width: 437px;
-        height: 275px
+        height: 275px;
     }
 }
 
@@ -127,7 +127,7 @@ body, html {
         position: relative;
         width: 100%;
         height: 250px;
-        overflow: hidden
+        overflow: hidden;
     }
 }
 
@@ -158,7 +158,7 @@ body, html {
         position: relative;
         width: 100%;
         height: 225px;
-        overflow: hidden
+        overflow: hidden;
     }
 }
 
@@ -169,32 +169,31 @@ body, html {
     display: flex;
     margin-top: 35px;
     margin-bottom: 100px;
-
     margin-left: auto;
     margin-right: auto;
 }
 
 .left-side {
-    width: 50%
+    width: 50%;
 }
 
 .right-side {
     min-width: 40%;
-    width: 50%
+    width: 50%;
 }
 
 .item-images {
     height: fit-content;
     width: fit-content;
     margin: auto;
-    margin-top: 75px
+    margin-top: 75px;
 }
 
 .item-text-content {
     margin-left: auto;
     margin-right: auto;
     margin-top: 75px;
-    max-width: 80%
+    max-width: 80%;
 }
 
 .item-main-image {
@@ -204,15 +203,15 @@ body, html {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, .301);
-    text-align: center
+    text-align: center;
 }
 
 .item-main-image img {
-    height: 100%
+    height: 100%;
 }
 
 .item-extra-images {
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 .extra-image {
@@ -220,7 +219,7 @@ body, html {
     width: 375px;
     justify-content: center;
     flex-wrap: wrap;
-    margin: auto
+    margin: auto;
 }
 
 .extra-image a {
@@ -230,45 +229,45 @@ body, html {
     overflow: hidden;
     background-color: #fff;
     box-shadow: 2.5px 2.5px 10px rgba(0, 0, 0, .301);
-    border-radius: 2.5px
+    border-radius: 2.5px;
 }
 
 .extra-image a:hover {
-    cursor: pointer
+    cursor: pointer;
 }
 
 .extra-image a img {
-    height: 100%
+    height: 100%;
 }
 
 .item-page-upper-part {
-    text-align: left
+    text-align: left;
 }
 
 .item-page-upper-part * {
-    margin: 0
+    margin: 0;
 }
 
 .item-page-upper-part p {
     color: #4b4b4b;
     font-weight: bolder;
-    font-size: 18px
+    font-size: 18px;
 }
 
 .item-page-upper-part h1 {
     font-size: 45px;
-    font-weight: 900
+    font-weight: 900;
 }
 
 .item-page-description {
-    margin-top: 50px
+    margin-top: 50px;
 }
 
 .desc-title {
     font-size: 24px;
     margin: 0;
     padding: 0;
-    font-weight: bolder
+    font-weight: bolder;
 }
 
 .desc-content {
@@ -279,7 +278,7 @@ body, html {
 }
 
 .checkout {
-    margin-top: 50px
+    margin-top: 50px;
 }
 
 .goto-button {
@@ -287,7 +286,7 @@ body, html {
     padding: 7.5px 10px 7.5px 10px;
     background-color: #000;
     color: #fff;
-    font-size: 24px
+    font-size: 24px;
 }
 
 .socials {
@@ -306,7 +305,7 @@ body, html {
 }
 
 .socials a:hover {
-    cursor: pointer
+    cursor: pointer;
 }
 
 @media screen and (max-width:1700px) {
@@ -316,7 +315,7 @@ body, html {
         width: inherit;
         overflow: hidden;
         width: 318px;
-        height: 318px
+        height: 318px;
     }
 }
 
@@ -341,7 +340,7 @@ body, html {
         width: 360px;
         height: 360px
     }
-    .item-page-upper-part{
+    .item-page-upper-part {
         text-align: center;
     }
     .extra-image {
@@ -362,7 +361,7 @@ body, html {
         margin-left: auto;
         margin-right: auto
     }
-    .socials{
+    .socials {
         margin-right: auto;
         margin-left: auto;
         gap: 15px;
@@ -375,7 +374,7 @@ body, html {
         vertical-align: middle;
         color: #fff;
     }
-    .desc-content{
+    .desc-content {
         text-align: left;
     }
 }
@@ -399,7 +398,7 @@ body, html {
         width: 100%
     }
     .socials {
-        display: flex
+        display: flex;
     }
 }
 
@@ -412,12 +411,10 @@ body, html {
         width: 350px;
         height: 350px
     }
-
     .item-main-image {
         margin-top: 90px;
         width: 300px;
         height: 300px;
-
         margin-left: auto;
         margin-right: auto;
     }
@@ -425,7 +422,7 @@ body, html {
 
 .item {
     padding: 0;
-    margin: 15px 10px
+    margin: 15px 10px;
 }
 
 .item-image-container {
@@ -433,23 +430,23 @@ body, html {
     height: 100%;
     background-color: #000;
     overflow: hidden;
-    border-radius: var(--card_border_radius)
+    border-radius: var(--card_border_radius);
 }
 
 .item-image-container img {
     height: 100%;
-    width: 275px
+    width: 275px;
 }
 
 .item-title {
     text-align: center;
     font-weight: 700;
-    margin-top: 15px
+    margin-top: 15px;
 }
 
 .item:hover>.savebutton {
     opacity: 1;
-    z-index: 5
+    z-index: 5;
 }
 
 .blog {
@@ -465,9 +462,9 @@ body, html {
     margin-left: 10px;
     margin-right: auto;
     margin-top: 10px;
-    border-radius: 100px
+    border-radius: 100px;
 }
 
 .blog i {
-    color: #333
+    color: #333;
 }

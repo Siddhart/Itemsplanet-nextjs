@@ -1,11 +1,15 @@
+//dotenv
+require("dotenv").config();
+
 //supabase variables
 const { createClient }  =  require("@supabase/supabase-js");
 const SupabaseURL = require("./next.config").env.SUPABASEURL;
-const SupabaseService = require("./next.config").env.SERVICE;
+const SupabaseService = process.env.SERVICE;
 
 const fs = require("fs");
 const { request, gql } = require("graphql-request");
 const GRAPHCMS = require("./next.config").env.GRAPHCMS;
+
 
 const supabase = createClient(SupabaseURL, SupabaseService);
 

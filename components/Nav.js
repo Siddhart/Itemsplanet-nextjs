@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCookies } from "react-cookie";
@@ -9,7 +8,7 @@ import "../public/logo.png";
 const Nav = () => {
   const [searchPath, setSearchPath] = useState("");
   const [cookies, setCookie, removeCookie] = useCookies([
-    "UID",
+    "ID",
     "RTK",
     "AUTH",
     "EXP",
@@ -18,7 +17,7 @@ const Nav = () => {
 
   useEffect(() => {
     async function checkCookieAuth() {
-      if (cookies.UID && cookies.UID != "") {
+      if (cookies.ID && cookies.ID != "") {
         setAuthenticated(true);
       } else {
         setAuthenticated(false);
@@ -43,11 +42,9 @@ const Nav = () => {
   }
 
   function logout() {
-    setCookie("AUTH", false);
-    setCookie("ID", "");
-    setCookie("UID", "");
-    setCookie("SL", "");
     setCookie("RTK", "");
+    setCookie("SL", "");
+    setCookie("ID", "");
     setCookie("EXP", false);
   }
 

@@ -13,11 +13,12 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 
 //css files
-import "../styles/main.css";
-import "../styles/index.css";
-import "../styles/item.css";
-import "../styles/blog.css";
-import "../styles/categories.css";
+// import "../styles/main.css";
+// import "../styles/index.css";
+// import "../styles/item.css";
+// import "../styles/blog.css";
+import "../styles/cleanup.css";
+// import "../styles/categories.css";
 
 function MyApp({ Component, pageProps }) {
   const [cookies, setCookie, removeCookie] = useCookies([

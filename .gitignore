@@ -35,4 +35,5 @@ yarn-error.log*
 
 /out/
 /node_modules/
-next.config.js
+.env
+/.env
