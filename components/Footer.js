@@ -19,14 +19,19 @@ const Footer = () => {
                     <a>Home</a>
                   </Link>
                 </td>
-                <td>
+                {/* <td>
                   <Link href="/">
                     <a>Discord Server</a>
                   </Link>
-                </td>
+                </td> */}
                 <td>
                   <Link href="/">
                     <a>Privacy Policy</a>
+                  </Link>
+                </td>
+                <td>
+                <Link href="/">
+                    <a>Cookie Policy</a>
                   </Link>
                 </td>
                 <td className="social-flex">
@@ -35,7 +40,7 @@ const Footer = () => {
                       <i className="fab fa-tiktok"></i>
                     </a>
                   </Link>
-                  <Link href="/">
+                  {/* <Link href="/">
                     <a>
                       <i className="fab fa-instagram"></i>
                     </a>
@@ -44,7 +49,7 @@ const Footer = () => {
                     <a>
                       <i className="fab fa-discord"></i>
                     </a>
-                  </Link>
+                  </Link> */}
                 </td>
               </tr>
               <tr>
@@ -60,31 +65,19 @@ const Footer = () => {
                 </td>
                 <td>
                 <Link href="/">
-                    <a>Cookie Policy</a>
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <Link href="/">
-                    <a>Log In</a>
-                  </Link>
-                </td>
-                <td>
-                <Link href="/">
-                    <a>Promote Your Item</a>
-                  </Link>
-                </td>
-                <td>
-                <Link href="/">
                     <a>Terms Of Use</a>
                   </Link>
                 </td>
               </tr>
               <tr>
                 <td>
+                <Link href="/categories">
+                    <a>Categories</a>
+                  </Link>
+                </td>
+                <td>
                 <Link href="/">
-                    <a>News</a>
+                    <a>Promote Your Item</a>
                   </Link>
                 </td>
               </tr>
