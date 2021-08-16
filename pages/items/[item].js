@@ -35,6 +35,9 @@ const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
     setSaved(false);
     if (cookies.SL != "") {
       let savedList = cookies.SL;
+      if(savedList.length <= 0){
+        return null
+      }
       savedList = savedList.split(";");
 
       for (let x = 0; x < savedList.length; x++) {

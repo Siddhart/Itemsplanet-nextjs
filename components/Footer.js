@@ -19,18 +19,13 @@ const Footer = () => {
                     <a>Home</a>
                   </Link>
                 </td>
-                {/* <td>
-                  <Link href="/">
-                    <a>Discord Server</a>
-                  </Link>
-                </td> */}
                 <td>
                   <Link href="/">
-                    <a>Privacy Policy</a>
+                    <a>Email</a>
                   </Link>
                 </td>
                 <td>
-                <Link href="/">
+                  <Link href="/policies/cookie_policy">
                     <a>Cookie Policy</a>
                   </Link>
                 </td>
@@ -40,50 +35,41 @@ const Footer = () => {
                       <i className="fab fa-tiktok"></i>
                     </a>
                   </Link>
-                  {/* <Link href="/">
-                    <a>
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </Link>
-                  <Link href="/">
-                    <a>
-                      <i className="fab fa-discord"></i>
-                    </a>
-                  </Link> */}
                 </td>
               </tr>
               <tr>
                 <td>
-                <Link href="/blogs">
+                  <Link href="/blogs">
                     <a>Blogs</a>
                   </Link>
                 </td>
                 <td>
-                <Link href="/">
-                    <a>Email</a>
-                  </Link>
-                </td>
-                <td>
-                <Link href="/">
-                    <a>Terms Of Use</a>
-                  </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <Link href="/categories">
-                    <a>Categories</a>
-                  </Link>
-                </td>
-                <td>
-                <Link href="/">
+                  <Link href="/promote_your_item">
                     <a>Promote Your Item</a>
                   </Link>
                 </td>
+                <td>
+                  <Link href="/policies/terms_of_use">
+                    <a>Terms Of use</a>
+                  </Link>
+                </td>
               </tr>
               <tr>
                 <td>
-                <Link href="/">
+                  <Link href="/categories">
+                    <a>Categories</a>
+                  </Link>
+                </td>
+                <td></td>
+                <td>
+                  <Link href="/policies/privacy_policy">
+                    <a>Privacy Policy</a>
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Link href="/sitemap.xml">
                     <a>SiteMap</a>
                   </Link>
                 </td>

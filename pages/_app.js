@@ -2,8 +2,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 //supabase variables
-const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
-const PublicAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE"
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const PublicAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE";
 
 //react components
 import React, { useState, useEffect } from "react";
@@ -15,9 +16,18 @@ import Router, { useRouter } from "next/router";
 //css files
 import "../styles/cleanup.min.css";
 
-Router.events.on('routeChangeComplete', () => { window.scrollTo(0, 0); });
+//components
+import CookiePopup from "../components/CookiePopup";
+
+Router.events.on("routeChangeComplete", () => {
+  window.scrollTo(0, 0);
+});
 
 function MyApp({ Component, pageProps }) {
+  const supabase = createClient(SupabaseURL, PublicAnonKey);
+
+  const router = useRouter();
+
   const [cookies, setCookie, removeCookie] = useCookies([
     "UID",
     "RTK",
@@ -25,13 +35,10 @@ function MyApp({ Component, pageProps }) {
     "ID",
     "SL",
   ]);
+
   const [authenticated, setAuthenticated] = useState(false);
 
-  const router = useRouter();
-
-  const supabase = createClient(SupabaseURL, PublicAnonKey);
-
-  function resetEverythingBoi(){
+  function resetEverythingBoi() {
     setCookie("UID", "");
     setCookie("RTK", "");
     setCookie("SL", "");
@@ -39,9 +46,8 @@ function MyApp({ Component, pageProps }) {
     setCookie("EXP", false);
     setAuthenticated(false);
   }
-  
-  useEffect(() => {
 
+  useEffect(() => {
     async function checkAuth() {
       if (cookies.EXP && cookies.EXP == "true") {
         if (cookies.RTK && cookies.RTK != "") {
@@ -56,7 +62,7 @@ function MyApp({ Component, pageProps }) {
       }
 
       if (cookies.EXP == undefined) {
-        resetEverythingBoi()
+        resetEverythingBoi();
       }
     }
     checkAuth();
@@ -67,7 +73,7 @@ function MyApp({ Component, pageProps }) {
       if (cookies.UID && cookies.UID != "") {
         setAuthenticated(true);
       } else {
-        resetEverythingBoi()
+        resetEverythingBoi();
       }
 
       if (cookies.ID != "") {
@@ -96,8 +102,8 @@ function MyApp({ Component, pageProps }) {
       return null;
     }
 
-    if(cookies.ID == '' || !cookies.ID){
-      return null
+    if (cookies.ID == "" || !cookies.ID) {
+      return null;
     }
     let readResponse = await supabase
       .from("userlists")
@@ -135,6 +141,10 @@ function MyApp({ Component, pageProps }) {
         .from("userlists")
         .update({ list: newList })
         .eq("user_id", cookies.ID);
+
+      if (error) {
+        router.push("/signup");
+      }
     } else {
       newList = id;
 
@@ -148,7 +158,7 @@ function MyApp({ Component, pageProps }) {
       .select("list")
       .eq("user_id", cookies.ID);
 
-    if (newReadResponse.data.length > 0) {
+    if (newReadResponse && newReadResponse.data.length > 0) {
       setCookie("SL", newReadResponse.data[0].list);
     } else {
       setCookie("SL", "");
@@ -158,6 +168,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} saveToUser={saveToUser} />
+      {/* <CookiePopup cookieFunction={closeCookiePopup} /> */}
     </>
   );
 }
