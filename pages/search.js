@@ -66,7 +66,9 @@ export default function Search({ saveToUser, q }) {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container" />
+        <div className="navcontainer">
+          <Nav />
+        </div>
 
         <div className="grid-title">
           {searchQuery.length >= 3 ? (

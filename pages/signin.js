@@ -64,7 +64,9 @@ export default function SignIN() {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container"/>
+      <div className="navcontainer">
+          <Nav />
+        </div>
 
         <div className="auth">
           <p className="auth-title">SIGN IN</p>

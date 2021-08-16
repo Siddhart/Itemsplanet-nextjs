@@ -1,5 +1,5 @@
 //react components
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactHtmlParser from "react-html-parser";
 
 //next components
@@ -10,18 +10,40 @@ import Head from "next/head";
 import Nav from "/components/Nav";
 import Footer from "/components/Footer";
 import SmallImage from "/components/SmallImage";
+import { useCookies } from "react-cookie";
 
 //graphql
 import { request } from "graphql-request";
 
-const ItemPage = ({ itemPropData, PageURL }) => {
+const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
   const [itemData, setItemData] = useState(itemPropData);
   const [images, setImages] = useState(itemPropData.images);
   const [image, setImage] = useState(itemPropData.images[0].url);
 
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "ID",
+    "SL"
+  ]);
+
   function changeMainImage(imgURL) {
     setImage(imgURL);
   }
+
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    setSaved(false);
+    if (cookies.SL != "") {
+      let savedList = cookies.SL;
+      savedList = savedList.split(";");
+
+      for (let x = 0; x < savedList.length; x++) {
+        if (savedList[x] == itemData.id) {
+          setSaved(true);
+        }
+      }
+    }
+  }, [cookies.SL, cookies.ID]);
 
   return (
     <>
@@ -78,6 +100,23 @@ const ItemPage = ({ itemPropData, PageURL }) => {
                 >
                   VIEW PRODUCT
                 </a>
+                <button
+                  onClick={() => {
+                    console.log(itemData.id);
+                    saveToUser(itemData.id);
+                  }}
+                  className="saveItemPage"
+                >
+                  {saved == false ? (
+                    <>
+                      <i className="fas fa-heart"></i>
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-heart-broken"></i>
+                    </>
+                  )}
+                </button>
               </div>
 
               <div className="socials">
@@ -111,13 +150,15 @@ const ItemPage = ({ itemPropData, PageURL }) => {
 };
 
 export async function getItemData(itemName) {
-  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
+  const cmsURL =
+    "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const ITEMQUERY = `
   query MyQuery {
     itemConnection(where: {title: "${itemName.replace(/_/g, " ")}"}) {
       edges {
         node {
           title
+          id
           images(first: 100) {
             url
             handle
@@ -144,15 +185,21 @@ export async function getItemData(itemName) {
 
 export async function getStaticProps({ params }) {
   const itemPropData = await getItemData(params.item);
+  const PageURL = `https://www.itemsplanet.com/items/${params.item.replace(
+    / /g,
+    "_"
+  )}`;
   return {
     props: {
       itemPropData,
+      PageURL,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const cmsURL = "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
+  const cmsURL =
+    "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master";
   const QUERY = `query MyQuery {
     itemConnection(first: 1000) {
       edges {

@@ -34,7 +34,9 @@ export default function CategoryPage() {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container" />
+      <div className="navcontainer">
+          <Nav />
+        </div>
 
         <div className="grid-title">
           <p>CATEGORIES</p>

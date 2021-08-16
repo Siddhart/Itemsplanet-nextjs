@@ -10,7 +10,6 @@ const Nav = () => {
   const [cookies, setCookie, removeCookie] = useCookies([
     "ID",
     "RTK",
-    "AUTH",
     "EXP",
   ]);
   const [authenticated, setAuthenticated] = useState(false);

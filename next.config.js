@@ -7,4 +7,3 @@ module.exports = {
       domains: ["media.graphcms.com", "www.itemsplanet.com"],
     },
   };
-  

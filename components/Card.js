@@ -95,7 +95,7 @@ const Card = ({ itemData, saveToUser }) => {
         }}
         className="savebutton"
       >
-        {saved == false ? <><i className="fas fa-heart"></i></> : <><i className="fas fa-envelope"></i></>}
+        {saved == false ? <><i className="fas fa-heart"></i></> : <><i className="fas fa-heart-broken"></i></>}
       </button>
       <p className="item-title">{itemData.title}</p>
     </div>

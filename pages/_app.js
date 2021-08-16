@@ -10,16 +10,17 @@ import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 //next components
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 
 //css files
 import "../styles/cleanup.min.css";
+
+Router.events.on('routeChangeComplete', () => { window.scrollTo(0, 0); });
 
 function MyApp({ Component, pageProps }) {
   const [cookies, setCookie, removeCookie] = useCookies([
     "UID",
     "RTK",
-    "AUTH",
     "EXP",
     "ID",
     "SL",
@@ -64,7 +65,6 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     async function checkCookieAuth() {
       if (cookies.UID && cookies.UID != "") {
-        setCookie("AUTH", true);
         setAuthenticated(true);
       } else {
         resetEverythingBoi()

@@ -39,7 +39,9 @@ export default function Featured({saveToUser}) {
         />
       </Head>
       <div className="container">
-        <Nav className="nav-container" />
+      <div className="navcontainer">
+          <Nav />
+        </div>
 
         <div className="grid-title">
           <p>Featured Items</p>
