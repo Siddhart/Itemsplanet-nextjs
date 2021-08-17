@@ -17,6 +17,9 @@ import { request } from "graphql-request";
 //SEO
 import SEO from '../../components/SEO'
 
+//ads component
+import Ads from '../../components/Ads'
+
 const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
   const [itemData, setItemData] = useState(itemPropData);
   const [images, setImages] = useState(itemPropData.images);
@@ -142,7 +145,11 @@ const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
               </div>
             </div>
           </div>
+
         </div>
+        
+        <Ads />
+
         <Footer />
       </div>
     </>

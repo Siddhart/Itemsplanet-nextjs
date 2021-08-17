@@ -25,7 +25,10 @@ const SEO = ({ seoTitle, seoDescription, seoImage, seoUrl }) => {
 
       {seoImage ? <meta property="og:image" content={seoImage} /> : ""}
 
-      <meta name="description" content={seoDescription ? seoDescription : defaultDesc} />
+      <meta
+        name="description"
+        content={seoDescription ? seoDescription : defaultDesc}
+      />
     </Head>
   );
 };
