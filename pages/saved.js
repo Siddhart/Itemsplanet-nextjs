@@ -2,8 +2,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 //supabase variables
-const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
-const PublicAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE"
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const PublicAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE";
 
 //react components
 import { useState, useEffect } from "react";
@@ -41,7 +42,6 @@ export default function Saved({ saveToUser }) {
           return item;
         });
 
-
         const { data, error } = await supabase
           .from("search")
           .select("id, title, image, cardClass, blog")
@@ -52,8 +52,8 @@ export default function Saved({ saveToUser }) {
         }
 
         setSavedItems(data);
-      }else{
-        setSavedItems([])
+      } else {
+        setSavedItems([]);
       }
     }
 
@@ -76,7 +76,19 @@ export default function Saved({ saveToUser }) {
           <p>SAVED</p>
         </div>
         {savedItems.length <= 0 ? (
-            <div style={{margin: "auto", width: "75%", marginTop: "75px", textAlign: "center"}}><p>You have no saved items. To save an item click on the heart icon when hovering over a item card.</p></div>
+          <div
+            style={{
+              margin: "auto",
+              width: "75%",
+              marginTop: "75px",
+              textAlign: "center",
+            }}
+          >
+            <p>
+              You have no saved items. To save an item click on the heart icon
+              when hovering over a item card.
+            </p>
+          </div>
         ) : (
           ""
         )}
@@ -96,7 +108,13 @@ export default function Saved({ saveToUser }) {
           <button onClick={loadChunk}>Load More</button>
         </div> : ''} */}
 
-        {savedItems.length != 0 ? <><Footer /></> : ""}
+        {savedItems.length != 0 ? (
+          <>
+            <Footer />
+          </>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

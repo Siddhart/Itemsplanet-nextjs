@@ -21,8 +21,9 @@ const Card = ({ itemData, saveToUser }) => {
 
   useEffect(() => {
     setSaved(false)
-    if(cookies.SL != ''){
+    if(cookies.SL != '' && cookies.SL != undefined){
       let savedList = (cookies.SL)
+      console.log(savedList)
       savedList = savedList.split(';')
 
       for(let x = 0; x < savedList.length; x++){

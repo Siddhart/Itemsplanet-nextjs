@@ -1,31 +1,24 @@
-import { useCookies } from "react-cookie";
+import Link from 'next/link';
 
 const CookiePopup = ({ cookieFunction }) => {
-  const [cookies, setCookie, removeCookie] = useCookies([
-    "UID",
-    "RTK",
-    "EXP",
-    "ID",
-    "SL",
-    "CK"
-  ]);
-
   return (
     <>
       <div className="cookiePopup">
-        <div className="cookie-text">
-          <p>
-            By using this website, you agree to our use of cookies. We use
-            cookies to provide you with a great experience and to help our
-            website run effectively.
-          </p>
-        </div>
-        <div className="cookie-close-button">
-          <button onClick={cookieFunction}>
+        <div className="cookie-content">
+          <div className="cookie-text">
             <p>
-              <i className="fas fa-times"></i>
+              By using this website, you agree to our use of cookies. We use
+              cookies to provide you with a great experience and to help our
+              website run effectively. Read our <Link href='/policies/cookie_policy'><a>Cookie Policy</a></Link> for more info.
             </p>
-          </button>
+          </div>
+          <div className="cookie-close-button">
+            <button onClick={cookieFunction}>
+              <p>
+                accept
+              </p>
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -1569,7 +1569,76 @@ body, html {
     color: #fff
 }
 
+.cookiePopup {
+    position: fixed;
+    z-index: 100;
+    bottom: 0px;
+    width: 100%;
+    height: fit-content;
+    padding: 15px 0px 15px 0px;
+    background-color: rgb(255, 255, 255);
+}
+
+.cookie-content {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-weight: 600;
+}
+
+.cookie-text {
+    margin-left: 20px;
+}
+
+.cookie-text a{
+    color: #1da1f2;
+}
+
+.cookie-close-button {
+    margin-right: 20px;
+    right: 0;
+    margin-left: 25px;
+}
+
+.cookie-close-button button {
+    border: none;
+    font-size: 24px;
+    background: linear-gradient(248deg, #ffbfc1 0, #e28cdb 100%);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px 5px 10px;
+    border-radius: 100px;
+}
+
+.cookie-close-button button p i {
+    color: black;
+}
+
+.cookie-close-button button:hover {
+    cursor: pointer;
+}
+
+.policyContent{
+    text-align: center;
+    margin-top: 75px;
+}
+
 @media screen and (max-width:1200px) {
+    .cookie-content {
+        width: 75%;
+        display: block;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .cookie-close-button {
+        margin-top: 10px;
+        text-align: center;
+    }
     .container {
         width: 100%
     }
@@ -2034,7 +2103,7 @@ label {
     width: 275px;
 }
 
-.category_card a .item-image-container{
+.category_card a .item-image-container {
     background-color: black;
 }
 

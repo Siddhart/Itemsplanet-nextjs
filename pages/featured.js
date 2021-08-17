@@ -9,25 +9,27 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-export default function Featured({saveToUser}) {
+export default function Featured({ saveToUser }) {
   const [featuredItems, setFeaturedItems] = useState([]);
 
   const [chunk, setChunk] = useState(0);
 
   //load the next chunk
   function loadChunk() {
-    if(chunk == 'none') return
+    if (chunk == "none") return;
 
-    fetch(`./dataChunks/featured/${chunk}.json`).then(res => res.json()).then(data =>{
-      setChunk(data[data.length - 1].nextChunk)
-      data.splice(-1,1)
-      data.slice(0, 6)
-      setFeaturedItems(featuredItems.concat(data))
-    })
+    fetch(`./dataChunks/featured/${chunk}.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setChunk(data[data.length - 1].nextChunk);
+        data.splice(-1, 1);
+        data.slice(0, 6);
+        setFeaturedItems(featuredItems.concat(data));
+      });
   }
 
   useEffect(() => {
-      loadChunk();
+    loadChunk();
   }, []);
 
   return (
@@ -39,7 +41,7 @@ export default function Featured({saveToUser}) {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
+        <div className="navcontainer">
           <Nav />
         </div>
 
@@ -57,9 +59,13 @@ export default function Featured({saveToUser}) {
           ))}
         </div>
 
-        {chunk != 'none' ? <div className="loadMore-button">
-          <button onClick={loadChunk}>Load More</button>
-        </div> : ''}
+        {chunk != "none" ? (
+          <div className="loadMore-button">
+            <button onClick={loadChunk}>Load More</button>
+          </div>
+        ) : (
+          ""
+        )}
 
         <Footer />
       </div>

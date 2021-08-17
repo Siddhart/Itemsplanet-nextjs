@@ -41,7 +41,7 @@ export default function Blogs({ saveToUser }) {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
+        <div className="navcontainer">
           <Nav />
         </div>
 

@@ -2,8 +2,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 //supabase variables
-const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
-const PublicAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE"
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const PublicAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE";
 
 //react components
 import { useState } from "react";
@@ -14,7 +15,6 @@ import Link from "next/link";
 
 //components
 import Nav from "../components/Nav";
-
 
 export default function SignIN() {
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ export default function SignIN() {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
+        <div className="navcontainer">
           <Nav />
         </div>
 

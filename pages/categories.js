@@ -34,7 +34,7 @@ export default function CategoryPage() {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
+        <div className="navcontainer">
           <Nav />
         </div>
 
@@ -43,14 +43,20 @@ export default function CategoryPage() {
         </div>
         <div className="item-grid">
           {categories.map((cat) => {
-            return <div key={cat.categoryName} className="item category_card">
-              <Link href={`./category/${cat.categoryName.replace(/ /g, "_")}`}><a>
-                <div className="item-image-container">
-                  <img alt={cat.categoryName} src={cat.categoryImage} />
-                </div>
-              </a></Link>
-              <p className="item-title category">{cat.categoryName}</p>
-            </div>;
+            return (
+              <div key={cat.categoryName} className="item category_card">
+                <Link
+                  href={`./category/${cat.categoryName.replace(/ /g, "_")}`}
+                >
+                  <a>
+                    <div className="item-image-container">
+                      <img alt={cat.categoryName} src={cat.categoryImage} />
+                    </div>
+                  </a>
+                </Link>
+                <p className="item-title category">{cat.categoryName}</p>
+              </div>
+            );
           })}
         </div>
         <Footer />

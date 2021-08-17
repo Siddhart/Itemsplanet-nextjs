@@ -19,26 +19,30 @@ export default function Home({ saveToUser }) {
 
   //load the next chunk
   function loadChunk() {
-    if(chunk == 'none') return
+    if (chunk == "none") return;
 
-    fetch(`./dataChunks/mainpage/${chunk}.json`).then(res => res.json()).then(data =>{
-      setChunk(data[data.length - 1].nextChunk)
-      data.splice(-1,1)
-      data.slice(0, 6)
-      setMainItems(mainItems.concat(data))
-    })
+    fetch(`./dataChunks/mainpage/${chunk}.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setChunk(data[data.length - 1].nextChunk);
+        data.splice(-1, 1);
+        data.slice(0, 6);
+        setMainItems(mainItems.concat(data));
+      });
   }
 
-  function getFeaturedItems(){
-    fetch(`./dataChunks/featured/0.json`).then(res => res.json()).then(data =>{
-      data.splice(-1,1)
-      setFeaturedItems(featuredItems.concat(data))
-    })
+  function getFeaturedItems() {
+    fetch(`./dataChunks/featured/0.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        data.splice(-1, 1);
+        setFeaturedItems(featuredItems.concat(data));
+      });
   }
 
   useEffect(() => {
-      loadChunk();
-      getFeaturedItems()
+    loadChunk();
+    getFeaturedItems();
   }, []);
 
   return (
@@ -50,12 +54,14 @@ export default function Home({ saveToUser }) {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
-        <Nav />
+        <div className="navcontainer">
+          <Nav />
         </div>
         <div className="grid-title">
           <p>FEATURED ITEMS</p>
-          <Link href="/featured"><a>MORE</a></Link>
+          <Link href="/featured">
+            <a>MORE</a>
+          </Link>
         </div>
         <div className="item-grid">
           {featuredItems.map((featured) => (
@@ -81,9 +87,13 @@ export default function Home({ saveToUser }) {
           ))}
         </div>
 
-        {chunk != 'none' ? <div className="loadMore-button">
-          <button onClick={loadChunk}>Load More</button>
-        </div> : ''}
+        {chunk != "none" ? (
+          <div className="loadMore-button">
+            <button onClick={loadChunk}>Load More</button>
+          </div>
+        ) : (
+          ""
+        )}
 
         <Footer />
       </div>

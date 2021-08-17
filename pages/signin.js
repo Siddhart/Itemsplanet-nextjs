@@ -2,8 +2,9 @@
 import { createClient } from "@supabase/supabase-js";
 
 //supabase variables
-const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co"
-const PublicAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE"
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const PublicAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE";
 
 //react components
 import { useState } from "react";
@@ -16,7 +17,6 @@ import { useRouter } from "next/router";
 import Nav from "../components/Nav";
 import Link from "next/link";
 import Head from "next/head";
-
 
 export default function SignIN() {
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ export default function SignIN() {
 
     if (error) {
       setErrorMessage(error.message);
-      return null
+      return null;
     }
 
     setCookie("UID", session.access_token, { maxAge: 518400 });
@@ -48,11 +48,11 @@ export default function SignIN() {
     setCookie("ID", session.user.id, { maxAge: 518400 });
 
     if (keepSignedIn == true) {
-      setCookie("EXP", true, { maxAge: 518400 });//we will give em 6 days
+      setCookie("EXP", true, { maxAge: 518400 }); //we will give em 6 days
     } else {
       setCookie("EXP", true, { maxAge: 10800 }); // yehhh we will give the users like 3 hours untill it expires. Read somewhere that on session end on ios means that it will expire when the user goes to another tab. We dont want that huh naah
     }
-    router.push("/");//back to the home page boi
+    router.push("/"); //back to the home page boi
   }
 
   return (
@@ -64,7 +64,7 @@ export default function SignIN() {
         />
       </Head>
       <div className="container">
-      <div className="navcontainer">
+        <div className="navcontainer">
           <Nav />
         </div>
 

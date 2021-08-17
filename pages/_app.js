@@ -25,7 +25,6 @@ Router.events.on("routeChangeComplete", () => {
 
 function MyApp({ Component, pageProps }) {
   const supabase = createClient(SupabaseURL, PublicAnonKey);
-
   const router = useRouter();
 
   const [cookies, setCookie, removeCookie] = useCookies([
@@ -34,21 +33,35 @@ function MyApp({ Component, pageProps }) {
     "EXP",
     "ID",
     "SL",
+    "CA",
   ]);
 
   const [authenticated, setAuthenticated] = useState(false);
+  const [cookieAccept, setCookieAccept] = useState(false);
+
+  function acceptCookies() {
+    setCookie("CA", true, { maxAge: 15778463 });
+    setCookieAccept(true);
+  }
 
   function resetEverythingBoi() {
-    setCookie("UID", "");
-    setCookie("RTK", "");
-    setCookie("SL", "");
-    setCookie("ID", "");
-    setCookie("EXP", false);
+    removeCookie("UID");
+    removeCookie("RTK");
+    removeCookie("SL");
+    removeCookie("ID");
+    removeCookie("EXP");
     setAuthenticated(false);
   }
 
   useEffect(() => {
     async function checkAuth() {
+      if (cookies.CA && cookies.CA == "true") {
+        setCookieAccept(true);
+      } else {
+        setCookie("CA", false);
+        setCookieAccept(false);
+      }
+
       if (cookies.EXP && cookies.EXP == "true") {
         if (cookies.RTK && cookies.RTK != "") {
           const { user, session, error } = await supabase.auth.signIn({
@@ -61,7 +74,7 @@ function MyApp({ Component, pageProps }) {
         }
       }
 
-      if (cookies.EXP == undefined) {
+      if (cookies.EXP == undefined || cookies.UID == '' || cookies.RTK == '') {
         resetEverythingBoi();
       }
     }
@@ -76,7 +89,7 @@ function MyApp({ Component, pageProps }) {
         resetEverythingBoi();
       }
 
-      if (cookies.ID != "") {
+      if (cookies.ID != "" && cookies.ID != undefined) {
         let readResponse = await supabase
           .from("userlists")
           .select("list")
@@ -168,7 +181,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} saveToUser={saveToUser} />
-      {/* <CookiePopup cookieFunction={closeCookiePopup} /> */}
+      {cookieAccept == false ? (
+        <CookiePopup cookieFunction={acceptCookies} />
+      ) : (
+        <></>
+      )}
     </>
   );
 }

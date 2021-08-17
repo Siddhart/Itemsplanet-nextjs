@@ -30,11 +30,13 @@ const Footer = () => {
                   </Link>
                 </td>
                 <td className="social-flex">
-                  <Link href="/">
-                    <a>
-                      <i className="fab fa-tiktok"></i>
-                    </a>
-                  </Link>
+                  <a
+                    href="https://www.tiktok.com/@itemsplanet"
+                    rel="noreffer"
+                    target="_blank"
+                  >
+                    <i className="fab fa-tiktok"></i>
+                  </a>
                 </td>
               </tr>
               <tr>
