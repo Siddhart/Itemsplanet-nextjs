@@ -83,7 +83,7 @@ const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
           <div className="right-side">
             <div className="item-text-content">
               <div className="item-page-upper-part">
-                <h1>{itemData.title}</h1>
+                <h1>{itemData.title.toUpperCase()}</h1>
               </div>
               <div className="item-page-description">
                 <p className="desc-title">DESCRIPTION:</p>
