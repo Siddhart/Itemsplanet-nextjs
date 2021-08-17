@@ -32,7 +32,7 @@ const Footer = () => {
                 <td className="social-flex">
                   <a
                     href="https://www.tiktok.com/@itemsplanet"
-                    rel="noreffer"
+                    rel="noreferrer"
                     target="_blank"
                   >
                     <i className="fab fa-tiktok"></i>
