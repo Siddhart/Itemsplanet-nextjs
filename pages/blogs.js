@@ -1,13 +1,13 @@
 //react components
 import { useState, useEffect } from "react";
 
-//next components
-import Head from "next/head";
-
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function Blogs({ saveToUser }) {
   const [blogItems, setBlogItems] = useState([]);
@@ -34,12 +34,7 @@ export default function Blogs({ saveToUser }) {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle="Itemsplanet - Blogs" seoDescription="Browse trough all our blogs. Find blogs which go more in dept about trending items and gadgets" seoUrl='https:"//www.itemsplanet.com/blogs' />
       <div className="container">
         <div className="navcontainer">
           <Nav />

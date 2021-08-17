@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 
 //next components
-import Head from "next/head";
 import { useRouter } from "next/router";
 
 //components
@@ -12,6 +11,9 @@ import Footer from "../components/Footer";
 
 //graphql
 import { request } from "graphql-request";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function Search({ saveToUser, q }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,12 +61,7 @@ export default function Search({ saveToUser, q }) {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle={"Itemsplanet - " + searchAmount + " Results For " + searchQuery.toUpperCase()} seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl={'https:"//www.itemsplanet.com/search?q=' + searchQuery} />
       <div className="container">
         <div className="navcontainer">
           <Nav />

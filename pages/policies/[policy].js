@@ -4,26 +4,21 @@ import { useState, useEffect } from "react";
 //html parser
 import ReactHtmlParser from "react-html-parser";
 
-//next components
-import Head from "next/head";
 
 //components
 import Nav from "../../components/Nav";
-import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 
 //grahql
 import { request } from "graphql-request";
 
+//SEO
+import SEO from '../../components/SEO'
+
 export default function Category({ policyData }) {
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle={"Itemsplanet - " + policyData.title} seoDescription={"Read about our " + policyData.title + "."} seoUrl={"https://www.itemsplanet.com/policies/" + policyData.title.toLowerCase().replace(/ /g, "_") } />
       <div className="container">
         <div className="navcontainer">
           <Nav />

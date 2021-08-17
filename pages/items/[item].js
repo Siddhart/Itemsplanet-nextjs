@@ -4,7 +4,6 @@ import ReactHtmlParser from "react-html-parser";
 
 //next components
 import Link from "next/link";
-import Head from "next/head";
 
 //components
 import Nav from "/components/Nav";
@@ -14,6 +13,9 @@ import { useCookies } from "react-cookie";
 
 //graphql
 import { request } from "graphql-request";
+
+//SEO
+import SEO from '../../components/SEO'
 
 const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
   const [itemData, setItemData] = useState(itemPropData);
@@ -33,7 +35,7 @@ const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
 
   useEffect(() => {
     setSaved(false);
-    if (cookies.SL != "") {
+    if (cookies.SL != "" && cookies.SL != undefined) {
       let savedList = cookies.SL;
       if(savedList.length <= 0){
         return null
@@ -50,12 +52,7 @@ const ItemPage = ({ itemPropData, PageURL, saveToUser }) => {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle={"Itemsplanet - " + itemData.title} seoDescription={itemData.description} seoUrl={PageURL} seoImage={itemData.images.length > 1 ? itemData.images[1].url : itemData.images[0].url} />
       <div className="container">
         <div className="navcontainer">
           <Nav />
@@ -172,6 +169,7 @@ export async function getItemData(itemName) {
             html
           }
           affiliateUrl
+          description
         }
       }
     }
@@ -218,7 +216,7 @@ export async function getStaticPaths() {
   const paths = res.itemConnection.edges.map((item) => {
     return {
       params: {
-        item: item.node.title.replace(/ /g, "_"),
+        item: item.node.title.toLowerCase().replace(/ /g, "_"),
       },
     };
   });

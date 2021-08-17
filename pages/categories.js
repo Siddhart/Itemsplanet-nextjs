@@ -2,12 +2,14 @@
 import { useState, useEffect } from "react";
 
 //next components
-import Head from "next/head";
 import Link from "next/link";
 
 //components
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function CategoryPage() {
   const [categories, setCategories] = useState([]);
@@ -27,12 +29,7 @@ export default function CategoryPage() {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle="Itemsplanet - Categories" seoDescription="Browse trough all our categories. Find gadgets and trending items" seoUrl='https:"//www.itemsplanet.com/categories' />
       <div className="container">
         <div className="navcontainer">
           <Nav />
@@ -46,7 +43,7 @@ export default function CategoryPage() {
             return (
               <div key={cat.categoryName} className="item category_card">
                 <Link
-                  href={`./category/${cat.categoryName.replace(/ /g, "_")}`}
+                  href={`./category/${cat.categoryName.toLowerCase().replace(/ /g, "_")}`}
                 >
                   <a>
                     <div className="item-image-container">
@@ -54,7 +51,7 @@ export default function CategoryPage() {
                     </div>
                   </a>
                 </Link>
-                <p className="item-title category">{cat.categoryName}</p>
+                <p className="item-title category">{cat.categoryName.toUpperCase()}</p>
               </div>
             );
           })}

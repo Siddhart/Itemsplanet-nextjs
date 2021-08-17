@@ -2,9 +2,6 @@
 import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 
-//next components
-import Head from "next/head";
-
 //components
 import Nav from "/components/Nav";
 import Footer from "/components/Footer";
@@ -12,18 +9,16 @@ import Footer from "/components/Footer";
 //graphql
 import { request } from "graphql-request";
 
+//SEO
+import SEO from '../../components/SEO'
+
 const BlogPage = ({ blogPropData, PageURL }) => {
   const [blogData, setItemData] = useState(blogPropData);
   const [image, setImage] = useState(blogPropData.backgroundImage.url);
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle={"Itemsplanet - " + blogPropData.title} seoDescription={blogPropData.shortDescription} seoUrl={'https://www.itemsplanet.com/blogs/' + blogPropData.title.toLowerCase().replace(/ /g, "_")}/>
       <div className="container">
         <div className="navcontainer">
           <Nav />

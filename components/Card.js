@@ -46,7 +46,7 @@ const Card = ({ itemData, saveToUser }) => {
       imageUrl = itemData.image
     }
 
-    itemUrl = `${WorkURL}/items/${itemData.title}`.replace(
+    itemUrl = `${WorkURL}/items/${itemData.title.toLowerCase()}`.replace(
       / /g,
       "_"
     );
@@ -59,7 +59,7 @@ const Card = ({ itemData, saveToUser }) => {
       imageUrl = itemData.image
     }
 
-    itemUrl = `${WorkURL}/blogs/${itemData.title}`.replace(
+    itemUrl = `${WorkURL}/blogs/${itemData.title.toLowerCase()}`.replace(
       / /g,
       "_"
     );

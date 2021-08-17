@@ -1,13 +1,13 @@
 //react components
 import { useState, useEffect } from "react";
 
-//next components
-import Head from "next/head";
-
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function Featured({ saveToUser }) {
   const [featuredItems, setFeaturedItems] = useState([]);
@@ -34,12 +34,7 @@ export default function Featured({ saveToUser }) {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle="Itemsplanet - Featured" seoDescription="Browse trough all the featured items on Itemsplanet. Find gadgets and trending items" seoUrl='https:"//www.itemsplanet.com/featured' />
       <div className="container">
         <div className="navcontainer">
           <Nav />

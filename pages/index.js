@@ -2,13 +2,15 @@
 import { useState, useEffect } from "react";
 
 //next components
-import Head from "next/head";
 import Link from "next/link";
 
 //components
 import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function Home({ saveToUser }) {
   const [featuredItems, setFeaturedItems] = useState([]);
@@ -20,7 +22,6 @@ export default function Home({ saveToUser }) {
   //load the next chunk
   function loadChunk() {
     if (chunk == "none") return;
-
     fetch(`./dataChunks/mainpage/${chunk}.json`)
       .then((res) => res.json())
       .then((data) => {
@@ -47,12 +48,7 @@ export default function Home({ saveToUser }) {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle="Itemsplanet" seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl='https:"//www.itemsplanet.com' />
       <div className="container">
         <div className="navcontainer">
           <Nav />

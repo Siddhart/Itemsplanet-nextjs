@@ -16,7 +16,9 @@ import { useRouter } from "next/router";
 //components
 import Nav from "../components/Nav";
 import Link from "next/link";
-import Head from "next/head";
+
+//SEO
+import SEO from '../components/SEO'
 
 export default function SignIN() {
   const [email, setEmail] = useState("");
@@ -57,12 +59,7 @@ export default function SignIN() {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle="Itemsplanet - Sign In" seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl='https:"//www.itemsplanet.com/signin' />
       <div className="container">
         <div className="navcontainer">
           <Nav />

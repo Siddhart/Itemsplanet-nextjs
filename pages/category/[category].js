@@ -1,9 +1,6 @@
 //react components
 import { useState, useEffect } from "react";
 
-//next components
-import Head from "next/head";
-
 //components
 import Nav from "../../components/Nav";
 import Card from "../../components/Card";
@@ -11,6 +8,9 @@ import Footer from "../../components/Footer";
 
 //grahql
 import { request } from "graphql-request";
+
+//SEO
+import SEO from '../../components/SEO'
 
 export default function Category({ catName, saveToUser }) {
   const [cName, setCName] = useState(catName)
@@ -34,12 +34,8 @@ export default function Category({ catName, saveToUser }) {
 
   return (
     <>
-      <Head>
-        <link
-          href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <SEO seoTitle={"Itemsplanet - " + catName} seoDescription={'Browse trough all the items that we have listed in our ' + catName.toLowerCase() + " category."} seoUrl={'https://www.itemsplanet.com/categories/' + cName.toLowerCase().replace(/ /g, "_")}/>
+
       <div className="container">
         <Nav className="nav-container"/>
 
@@ -94,7 +90,7 @@ export async function getStaticPaths() {
   const paths = res.categoriesConnection.edges.map((cat) => {
     return {
       params: {
-        category: cat.node.category.replace(/ /g, "_"),
+        category: cat.node.category.toLowerCase().replace(/ /g, "_"),
       },
     };
   });
