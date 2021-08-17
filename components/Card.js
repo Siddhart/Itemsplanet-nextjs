@@ -98,7 +98,7 @@ const Card = ({ itemData, saveToUser }) => {
       >
         {saved == false ? <><i className="fas fa-heart"></i></> : <><i className="fas fa-heart-broken"></i></>}
       </button>
-      <p className="item-title">{itemData.title}</p>
+      <p className="item-title">{itemData.title.toUpperCase()}</p>
     </div>
   );
 };
