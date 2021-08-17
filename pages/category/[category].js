@@ -40,7 +40,7 @@ export default function Category({ catName, saveToUser }) {
         <Nav className="nav-container"/>
 
         <div className="grid-title">
-          <p>{cName.replace(/_/g, " ")}</p>
+          <p>{cName.replace(/_/g, " ").toUpperCase()}</p>
         </div>
         <div className="item-grid">
           {categoryItems.map((categoryItem) => (
