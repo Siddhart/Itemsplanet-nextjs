@@ -52,28 +52,28 @@ const Nav = () => {
       <div className="nav-pc-container">
         <div className="nav-logo">
           <Link href="/">
-            <a>
+            <a aria-label="HomePage">
               <img src="https://www.itemsplanet.com/logo.png" alt="logo" />
             </a>
           </Link>
         </div>
 
         <div className="cat_blog">
-          <a onClick={mobileNavToggle} className="mobile-nav">
+          <a onClick={mobileNavToggle} className="mobile-nav" aria-label="Open Navbar">
             <div className="nav_button">
               <i className="fas fa-bars"></i>
             </div>
           </a>
           <div className="nav_button pc-nav">
             <Link href="/categories">
-              <a>
+              <a aria-label="Categories">
                 <i className="fas fa-th-large"></i>
               </a>
             </Link>
           </div>
           <div className="nav_button pc-nav">
             <Link href="/blogs">
-              <a>
+              <a aria-label="Blogs">
                 <i className="fas fa-book"></i>
               </a>
             </Link>
@@ -82,7 +82,7 @@ const Nav = () => {
 
         <div className="searchbar">
           <Link href={"/search?q=" + searchPath}>
-            <a className="searchbutton">
+            <a className="searchbutton" aria-label="Search">
               <i className="fas fa-search"></i>
             </a>
           </Link>
@@ -100,7 +100,7 @@ const Nav = () => {
           <div className="saved_button pc-nav">
             <div className="nav_button">
               <Link href="/saved">
-                <a>
+                <a aria-label="Saved Items And Blogs">
                   <i className="fas fa-star"></i>
                 </a>
               </Link>
@@ -114,16 +114,16 @@ const Nav = () => {
           {authenticated == false ? (
             <>
               <Link href="/signin">
-                <a className="authbutton signin">Sign In</a>
+                <a className="authbutton signin" aria-label="Sign In">Sign In</a>
               </Link>
               <Link href="/signup">
-                <a className="authbutton signup">Sign Up</a>
+                <a className="authbutton signup" aria-label="Sign Up">Sign Up</a>
               </Link>
             </>
           ) : (
             <>
               <Link href="/">
-                <a onClick={logout} className="authbutton signin logout">
+                <a onClick={logout} className="authbutton signin logout" aria-label="Logout">
                   Logout
                 </a>
               </Link>
@@ -139,15 +139,15 @@ const Nav = () => {
       >
         <div className="mobile-main-links">
           <Link href="/categories">
-            <a>Categories</a>
+            <a aria-label="Categories">Categories</a>
           </Link>
           <br />
           <Link href="/blogs">
-            <a>Blogs</a>
+            <a aria-label="Blogs">Blogs</a>
           </Link>
           <br />
           <Link href="/saved">
-            <a>Saved</a>
+            <a aria-label="Saved Items And Blogs">Saved</a>
           </Link>
         </div>
         <hr />
@@ -155,15 +155,15 @@ const Nav = () => {
           {!authenticated ? (
             <>
               <Link href="/signin">
-                <a className="signin">Sign In</a>
+                <a className="signin" aria-label="Sign In">Sign In</a>
               </Link>
               <Link href="/signup">
-                <a className="signup">Sign Up</a>
+                <a className="signup" aria-label="Sign Up">Sign Up</a>
               </Link>
             </>
           ) : (
             <Link href="/">
-              <a onClick={logout} className="signin">
+              <a onClick={logout} className="signin" aria-label="Logout">
                 Logout
               </a>
             </Link>
