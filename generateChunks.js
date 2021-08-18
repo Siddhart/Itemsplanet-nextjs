@@ -156,7 +156,7 @@ request(GRAPHCMS, query).then(async (data) => {
     const nextChunk =
       chunkNum + 1 != totalFeaturedChunkArray.length ? chunkNum + 1 : "none";
     objList.map((obj) => {
-      obj.node["cardClass"] = "item card_large";
+      obj.node["cardClass"] = "item card_featured";
       obj.node["blog"] = false;
     });
 

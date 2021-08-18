@@ -15,7 +15,7 @@ const CookiePopup = ({ cookieFunction }) => {
           <div className="cookie-close-button">
             <button onClick={cookieFunction}>
               <p>
-                accept
+                Close
               </p>
             </button>
           </div>
