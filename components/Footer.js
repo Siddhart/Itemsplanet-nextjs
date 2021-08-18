@@ -20,9 +20,7 @@ const Footer = () => {
                   </Link>
                 </td>
                 <td>
-                  <Link href="/">
-                    <a>Email</a>
-                  </Link>
+                  <a href = "mailto:itemsplanet@gmail.com">Email</a>
                 </td>
                 <td>
                   <Link href="/policies/cookie_policy">
@@ -46,9 +44,9 @@ const Footer = () => {
                   </Link>
                 </td>
                 <td>
-                  <Link href="/promote_your_item">
+                  {/* <Link href="/promote_your_item">
                     <a>Promote Your Item</a>
-                  </Link>
+                  </Link> */}
                 </td>
                 <td>
                   <Link href="/policies/terms_of_use">

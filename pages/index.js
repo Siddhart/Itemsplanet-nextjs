@@ -71,7 +71,7 @@ export default function Home({ saveToUser }) {
         </div>
 
         <div className="grid-title">
-          <p>New Discoveries</p>
+          <p>NEW DISCOVERIES</p>
         </div>
         <div className="item-grid">
           {mainItems.map((mainItem) => (
