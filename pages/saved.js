@@ -103,11 +103,6 @@ export default function Saved({ saveToUser }) {
           ))}
         </div>
 
-        {/* 
-        {chunk != 'none' ? <div className="loadMore-button">
-          <button onClick={loadChunk}>Load More</button>
-        </div> : ''} */}
-
         {savedItems.length != 0 ? (
           <>
             <Footer />

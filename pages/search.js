@@ -17,9 +17,6 @@ import Nav from "../components/Nav";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
-//graphql
-import { request } from "graphql-request";
-
 //SEO
 import SEO from "../components/SEO";
 

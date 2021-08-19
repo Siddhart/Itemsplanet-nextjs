@@ -1,8 +1,6 @@
 //supabase
 import { createClient } from "@supabase/supabase-js";
 
-import Head from "next/head";
-
 //supabase variables
 const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
 const PublicAnonKey =

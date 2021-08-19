@@ -18,7 +18,7 @@ import Nav from "../components/Nav";
 import Link from "next/link";
 
 //SEO
-import SEO from '../components/SEO'
+import SEO from "../components/SEO";
 
 export default function SignIN() {
   const [email, setEmail] = useState("");
@@ -50,16 +50,20 @@ export default function SignIN() {
     setCookie("ID", session.user.id, { maxAge: 518400 });
 
     if (keepSignedIn == true) {
-      setCookie("EXP", true, { maxAge: 518400 }); //we will give em 6 days
+      setCookie("EXP", true, { maxAge: 518400 });
     } else {
-      setCookie("EXP", true, { maxAge: 10800 }); // yehhh we will give the users like 3 hours untill it expires. Read somewhere that on session end on ios means that it will expire when the user goes to another tab. We dont want that huh naah
+      setCookie("EXP", true, { maxAge: 10800 });
     }
-    router.push("/"); //back to the home page boi
+    router.push("/");
   }
 
   return (
     <>
-      <SEO seoTitle="Itemsplanet - Sign In" seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl='https:"//www.itemsplanet.com/signin' />
+      <SEO
+        seoTitle="Itemsplanet - Sign In"
+        seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items."
+        seoUrl='https:"//www.itemsplanet.com/signin'
+      />
       <div className="container">
         <div className="navcontainer">
           <Nav />

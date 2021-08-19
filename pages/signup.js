@@ -16,7 +16,7 @@ import Link from "next/link";
 import Nav from "../components/Nav";
 
 //SEO
-import SEO from '../components/SEO'
+import SEO from "../components/SEO";
 
 export default function SignIN() {
   const [email, setEmail] = useState("");
@@ -31,9 +31,7 @@ export default function SignIN() {
   const supabase = createClient(SupabaseURL, PublicAnonKey);
 
   function checkCredentials() {
-    // firebaseFunction.createUser();
     setSuccessMessage(false);
-    // let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let regexEmail = /^\S+@\S+\.\S+$/;
     if (email.match(regexEmail) == null) {
       setErrormessage("Please enter a valid e-mail adress");
@@ -79,7 +77,11 @@ export default function SignIN() {
 
   return (
     <>
-      <SEO seoTitle="Itemsplanet - Sign Up" seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl='https:"//www.itemsplanet.com/signup' />
+      <SEO
+        seoTitle="Itemsplanet - Sign Up"
+        seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items."
+        seoUrl='https:"//www.itemsplanet.com/signup'
+      />
       <div className="container">
         <div className="navcontainer">
           <Nav />

@@ -1,9 +1,5 @@
-//react components
-import { useState, useEffect } from "react";
-
 //html parser
 import ReactHtmlParser from "react-html-parser";
-
 
 //components
 import Nav from "../../components/Nav";
@@ -13,12 +9,19 @@ import Footer from "../../components/Footer";
 import { request } from "graphql-request";
 
 //SEO
-import SEO from '../../components/SEO'
+import SEO from "../../components/SEO";
 
 export default function Category({ policyData }) {
   return (
     <>
-      <SEO seoTitle={"Itemsplanet - " + policyData.title} seoDescription={"Read about our " + policyData.title + "."} seoUrl={"https://www.itemsplanet.com/policies/" + policyData.title.toLowerCase().replace(/ /g, "_") } />
+      <SEO
+        seoTitle={"Itemsplanet - " + policyData.title}
+        seoDescription={"Read about our " + policyData.title + "."}
+        seoUrl={
+          "https://www.itemsplanet.com/policies/" +
+          policyData.title.toLowerCase().replace(/ /g, "_")
+        }
+      />
       <div className="container">
         <div className="navcontainer">
           <Nav />
@@ -27,7 +30,17 @@ export default function Category({ policyData }) {
         <div className="grid-title">
           <p>{policyData.title.toUpperCase()}</p>
         </div>
-        <p style={{textAlign: "center", color:"grey", fontSize: "21px", fontWeight: "bolder", marginTop: "-25px"}}>Last Edit: {policyData.updatedAt.slice(0,10)}</p>
+        <p
+          style={{
+            textAlign: "center",
+            color: "grey",
+            fontSize: "21px",
+            fontWeight: "bolder",
+            marginTop: "-25px",
+          }}
+        >
+          Last Edit: {policyData.updatedAt.slice(0, 10)}
+        </p>
 
         <div className="policyContent">
           {ReactHtmlParser(policyData.content.html)}
