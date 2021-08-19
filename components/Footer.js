@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
           <div className="credits">
             <p>
-              <Link href="https://www.github.com/Siddhart">
+              <Link href="https://www.siddhart.dev">
                 <a>Made By Siddhart</a>
               </Link>
             </p>

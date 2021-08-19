@@ -1,3 +1,11 @@
+//supabase
+import { createClient } from "@supabase/supabase-js";
+
+//supabase variables
+const SupabaseURL = "https://apbrajlcunciizanpygs.supabase.co";
+const PublicAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODcyNDY5NCwiZXhwIjoxOTQ0MzAwNjk0fQ.lzYJfNAfI3Qi58s_hSf9tCief1_bEoRemN7V5mXiARE";
+
 //react components
 import { useState, useEffect } from "react";
 
@@ -13,47 +21,36 @@ import Footer from "../components/Footer";
 import { request } from "graphql-request";
 
 //SEO
-import SEO from '../components/SEO'
+import SEO from "../components/SEO";
 
 export default function Search({ saveToUser, q }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedItems, setSearchedItems] = useState([]);
   const [searchAmount, setSearchAmount] = useState(0);
 
+  const supabase = createClient(SupabaseURL, PublicAnonKey);
   const router = useRouter();
 
   useEffect(() => {
     async function searchFunction() {
       setSearchedItems([]);
-      setSearchQuery(q);
+      setSearchQuery(q.trim());
+
       if (searchQuery.length < 3) {
+        setSearchAmount(0)
         setSearchedItems([]);
         return null;
       }
 
       if (searchQuery) {
-        const SEARCHQ = `query MyQuery {
-            itemConnection(where: {title_contains: "${searchQuery}"}) {
-              edges {
-                node {
-                  id
-                  title
-                  images(first: 1) {
-                    id
-                    url
-                  }
-                  featured
-                }
-              }
-            }
-          }`;
+        const { data, error } = await supabase.from("search").select(`*`).ilike('title', `%${searchQuery}%`);
 
-        let res = await request(
-          "https://api-eu-central-1.graphcms.com/v2/ckoxen8nkorja01z71sul3k0h/master",
-          SEARCHQ
-        );
-        setSearchedItems([].concat(res.itemConnection.edges));
-        setSearchAmount(res.itemConnection.edges.length);
+        if(error){
+          router.push('/')
+          return null
+        }
+        setSearchedItems([].concat(data));
+        setSearchAmount(data.length);
       }
     }
     searchFunction();
@@ -61,7 +58,16 @@ export default function Search({ saveToUser, q }) {
 
   return (
     <>
-      <SEO seoTitle={"Itemsplanet - " + searchAmount + " Results For " + searchQuery.toUpperCase()} seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items." seoUrl={'https:"//www.itemsplanet.com/search?q=' + searchQuery} />
+      <SEO
+        seoTitle={
+          "Itemsplanet - " +
+          searchAmount +
+          " Results For " +
+          searchQuery.toUpperCase()
+        }
+        seoDescription="Browse or search for cool items on our website. We have listed a lot of cool and cheap items."
+        seoUrl={'https:"//www.itemsplanet.com/search?q=' + searchQuery}
+      />
       <div className="container">
         <div className="navcontainer">
           <Nav />
@@ -81,8 +87,8 @@ export default function Search({ saveToUser, q }) {
           <div className="item-grid">
             {searchedItems.map((item) => (
               <Card
-                key={item.node.id}
-                itemData={item.node}
+                key={item.id}
+                itemData={item}
                 saveToUser={saveToUser}
               />
             ))}
