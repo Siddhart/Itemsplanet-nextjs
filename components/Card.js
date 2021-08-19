@@ -85,7 +85,7 @@ const Card = ({ itemData, saveToUser }) => {
       <Link href={itemUrl}>
       <a>
         <div className="item-image-container" style={{ position: "relative" }}>
-          <Image src={imageUrl} alt={itemData.title} layout="fill" />
+          <Image src={"https://media.graphcms.com/resize=height:300/" + imageUrl.split('/')[imageUrl.split('/').length - 1]} alt={itemData.title} layout="fill" />
         </div>
       </a>
       </Link>
