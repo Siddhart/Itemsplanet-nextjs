@@ -16,8 +16,8 @@ const Ads = () => {
       style={{ margin: "25px auto 25px auto" }}
       data-ad-client="ca-pub-7427232256160357"
       data-ad-slot="8734531951"
-      data-ad-format="auto"
-      data-full-width-responsive="true"
+      data-ad-format="rectangle"
+      // data-full-width-responsive="true"
     ></ins>
   );
 };
