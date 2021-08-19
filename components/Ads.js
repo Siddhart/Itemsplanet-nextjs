@@ -13,11 +13,11 @@ const Ads = () => {
   return (
     <ins
       className="adsbygoogle"
-      style={{ margin: "25px auto 25px auto" }}
+      style={{ margin: "25px auto 25px auto", display: "block" }}
       data-ad-client="ca-pub-7427232256160357"
       data-ad-slot="8734531951"
-      data-ad-format="rectangle"
-      // data-full-width-responsive="true"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
     ></ins>
   );
 };
