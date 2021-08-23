@@ -1,31 +1,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.itemsplanet.com/categories</loc>
-    <lastmod>2021-08-18T20:37:09.854Z</lastmod>
+    <lastmod>2021-08-20T22:50:16.482Z</lastmod>
     <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://www.itemsplanet.com/blogs</loc>
-    <lastmod>2021-08-18T20:37:09.854Z</lastmod>
+    <lastmod>2021-08-20T22:50:16.482Z</lastmod>
     <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://www.itemsplanet.com/signin</loc>
-    <lastmod>2021-08-18T20:37:09.854Z</lastmod>
+    <lastmod>2021-08-20T22:50:16.482Z</lastmod>
     <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://www.itemsplanet.com/signup</loc>
-    <lastmod>2021-08-18T20:37:09.854Z</lastmod>
+    <lastmod>2021-08-20T22:50:16.482Z</lastmod>
     <priority>0.80</priority>
   </url>
   
   <url>
     <loc>https://www.itemsplanet.com/featured</loc>
-    <lastmod>2021-08-18T20:37:09.854Z</lastmod>
+    <lastmod>2021-08-20T22:50:16.482Z</lastmod>
     <priority>0.80</priority>
   </url>
   </urlset>

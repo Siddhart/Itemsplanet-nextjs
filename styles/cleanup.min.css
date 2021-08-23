@@ -357,8 +357,8 @@ body, html {
         display: block
     }
     .item-main-image {
-        width: 360px;
-        height: 360px
+        width: 330px;
+        height: 330px
     }
 }
 
@@ -711,8 +711,8 @@ body, html {
         display: block
     }
     .item-main-image {
-        width: 360px;
-        height: 360px
+        width: 330px;
+        height: 330px
     }
 }
 
@@ -1169,11 +1169,15 @@ body, html {
         margin-right: auto
     }
     .item-main-image {
-        width: 360px;
-        height: 360px
+        width: 330px;
+        height: 330px
     }
     .item-page-upper-part {
         text-align: center
+    }
+    .item-page-upper-part h1 {
+        font-size: 35px;
+        font-weight: 900
     }
     .extra-image {
         display: flex;
@@ -1193,7 +1197,7 @@ body, html {
         margin-left: auto;
         margin-right: auto
     }
-    .socials {
+    /* .socials {
         margin-right: auto;
         margin-left: auto;
         gap: 15px
@@ -1205,7 +1209,7 @@ body, html {
         text-align: center;
         vertical-align: middle;
         color: #fff
-    }
+    } */
     .desc-content {
         text-align: left
     }
@@ -1889,6 +1893,12 @@ label {
 }
 
 @media screen and (max-width:1025px) {
+
+    .item-main-image{
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
     .blog-image {
         border-radius: 10px 10px 0 0;
         display: block;
@@ -2027,8 +2037,12 @@ label {
         display: block
     }
     .item-main-image {
-        width: 360px;
-        height: 360px
+        width: 330px;
+        height: 330px
+    }
+
+    .item-page-description {
+        margin-top: 15px
     }
 }
 
