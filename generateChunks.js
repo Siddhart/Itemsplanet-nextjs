@@ -1,5 +1,3 @@
-import { isTypeSubTypeOf } from "graphql";
-
 //dotenv
 require("dotenv").config();
 
