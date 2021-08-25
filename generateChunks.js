@@ -66,7 +66,7 @@ const query = gql`
 
 
 
-export function generateeverythingboi() {
+function generateeverythingboi() {
   const classArray = ["item card_medium", "item card_large"];
   request(GRAPHCMS, query).then(async (data) => {
     let totalChunkArray = data.itemConnection.edges
