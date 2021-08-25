@@ -64,9 +64,7 @@ const query = gql`
   }
 `;
 
-
-
-function generateeverythingboi() {
+export function generateeverythingboi() {
   const classArray = ["item card_medium", "item card_large"];
   request(GRAPHCMS, query).then(async (data) => {
     let totalChunkArray = data.itemConnection.edges
@@ -225,48 +223,46 @@ function generateeverythingboi() {
     //create the sitemap boi
     createSitemap();
   });
+}
 
-  function func(a, b) {
-    return 0.5 - Math.random();
-  }
-  
-  function createChunk(fileName, content, next) {
-    fs.writeFileSync(
-      fileName,
-      JSON.stringify(content.sort(func).sort(func).concat({ nextChunk: next }))
-    );
-  }
-  
-  function createSitemapObject(sitemapENDPOINT, sitemapLASTMOD) {
-    let obj = `
-    <url>
-      <loc>${MainURL}${sitemapENDPOINT}</loc>
-      <lastmod>${sitemapLASTMOD}</lastmod>
-      <priority>0.80</priority>
-    </url>
-    `;
-    return obj;
-  }
-  
-  function createSitemap() {
-    let sitemapArray = [];
-    let whatsthetimenowhuh = new Date().toISOString();
-  
-    sitemapArray.push(
-      `<url><loc>${MainURL}/</loc><lastmod>${whatsthetimenowhuh}</lastmod><priority>1.00</priority></url>`
-    );
-  
-    sitemapArray = Endpoints.map((endpoint) => {
-      return createSitemapObject(endpoint, whatsthetimenowhuh);
-    });
-  
-    let sitemapString = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">${sitemapArray.join(
-      ""
-    )}</urlset>`;
-    fs.writeFileSync("./public/sitemap.xml", sitemapString);
-  }
-  
+function func(a, b) {
+  return 0.5 - Math.random();
+}
 
+function createChunk(fileName, content, next) {
+  fs.writeFileSync(
+    fileName,
+    JSON.stringify(content.sort(func).sort(func).concat({ nextChunk: next }))
+  );
+}
+
+function createSitemapObject(sitemapENDPOINT, sitemapLASTMOD) {
+  let obj = `
+  <url>
+    <loc>${MainURL}${sitemapENDPOINT}</loc>
+    <lastmod>${sitemapLASTMOD}</lastmod>
+    <priority>0.80</priority>
+  </url>
+  `;
+  return obj;
+}
+
+function createSitemap() {
+  let sitemapArray = [];
+  let whatsthetimenowhuh = new Date().toISOString();
+
+  sitemapArray.push(
+    `<url><loc>${MainURL}/</loc><lastmod>${whatsthetimenowhuh}</lastmod><priority>1.00</priority></url>`
+  );
+
+  sitemapArray = Endpoints.map((endpoint) => {
+    return createSitemapObject(endpoint, whatsthetimenowhuh);
+  });
+
+  let sitemapString = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">${sitemapArray.join(
+    ""
+  )}</urlset>`;
+  fs.writeFileSync("./public/sitemap.xml", sitemapString);
 }
 
 Array.range = function (n) {
