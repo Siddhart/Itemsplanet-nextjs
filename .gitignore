@@ -37,3 +37,8 @@ yarn-error.log*
 /node_modules/
 .env
 /.env
+
+/public/dataChunks/blogs/*
+/public/dataChunks/categories/*
+/public/dataChunks/featured/*
+/public/dataChunks/mainPage/*
