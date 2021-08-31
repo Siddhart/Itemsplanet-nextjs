@@ -9,7 +9,7 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "generate": "node generateChunks.js && next build",
+    "generate": "node generateChunks.js && next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
