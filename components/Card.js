@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 
-const WorkURL = 'https://itemsplanet-nextjs.vercel.app'
+const WorkURL = 'https://itemsplanet.com'
 
 const Card = ({ itemData, saveToUser }) => {
   const [cookies, setCookie, removeCookie] = useCookies([
