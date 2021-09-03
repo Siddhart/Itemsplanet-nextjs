@@ -1333,8 +1333,8 @@ body, html {
 
 .cat_blog {
     display: flex;
-/*     margin-left: 15px; */
-    margin-right: 15px
+    margin-left: 10px;
+/*     margin-right: 15px */
 }
 
 .nav_button {
