@@ -23,7 +23,14 @@ const SEO = ({ seoTitle, seoDescription, seoImage, seoUrl }) => {
       />
       <meta property="og:url" content={seoUrl} />
 
-      {seoImage ? <meta property="og:image" content={seoImage} /> : <meta property="og:image" content="https://www.itemsplanet.com/logo.png" />}
+      {seoImage ? (
+        <meta property="og:image" content={seoImage} />
+      ) : (
+        <meta
+          property="og:image"
+          content="https://www.itemsplanet.com/logo.png"
+        />
+      )}
 
       <meta
         name="description"

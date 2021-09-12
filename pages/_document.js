@@ -1,21 +1,22 @@
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-  render () {
+  render() {
     return (
       <Html lang="en">
         <Head>
-          <script data-ad-client="ca-pub-7427232256160357"
-            type='text/javascript'
+          <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7427232256160357"
+            crossorigin="anonymous"
+          ></script>
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
