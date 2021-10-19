@@ -31,9 +31,15 @@ const Footer = () => {
                   <a
                     href="https://www.tiktok.com/@itemsplanet"
                     rel="noreferrer"
-                    target="_blank"
                   >
                     <i className="fab fa-tiktok"></i>
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/itemsplanet"
+                    rel="noreferrer"
+                  >
+                    <i className="fab fa-instagram"></i>
                   </a>
                 </td>
               </tr>
