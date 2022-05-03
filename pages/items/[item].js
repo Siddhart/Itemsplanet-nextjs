@@ -201,7 +201,7 @@ export async function getStaticProps({ params }) {
     props: {
       itemPropData,
       PageURL,
-    },z
+    },
   };
 }
 
