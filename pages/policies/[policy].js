@@ -77,6 +77,7 @@ export async function getStaticProps({ params }) {
     props: {
       policyData,
     },
+    revalidate: 10,
   };
 }
 

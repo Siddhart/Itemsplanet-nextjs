@@ -202,6 +202,7 @@ export async function getStaticProps({ params }) {
       itemPropData,
       PageURL,
     },
+    revalidate: 10,
   };
 }
 

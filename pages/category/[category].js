@@ -69,6 +69,7 @@ export async function getStaticProps({ params }) {
     props: {
       catName,
     },
+    revalidate: 10,
   };
 }
 
