@@ -201,8 +201,7 @@ export async function getStaticProps({ params }) {
     props: {
       itemPropData,
       PageURL,
-    },
-    revalidate: 10,
+    },z
   };
 }
 
@@ -230,7 +229,7 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 }
 

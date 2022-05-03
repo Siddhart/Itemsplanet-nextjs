@@ -69,7 +69,6 @@ export async function getStaticProps({ params }) {
     props: {
       catName,
     },
-    revalidate: 10,
   };
 }
 
@@ -97,6 +96,6 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 }
