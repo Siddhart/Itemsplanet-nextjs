@@ -203,7 +203,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <></>
       )}
-      <GA />
+      {/* <GA /> */}
     </>
   );
 }
