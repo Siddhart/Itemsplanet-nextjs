@@ -13,6 +13,7 @@ import { useCookies } from "react-cookie";
 //next components
 import Router, { useRouter } from "next/router";
 import Head from 'next/head'
+import GA from '../components/GA'
 
 //css files
 import "../styles/cleanup.min.css";
@@ -198,6 +199,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <></>
       )}
+      <GA></GA>
     </>
   );
 }
