@@ -55,6 +55,11 @@ export default function SignIN() {
       setCookie("EXP", true, { maxAge: 10800 });
     }
     router.push("/");
+
+    ReactGA.event({
+      category: 'User',
+      action: 'User Login'
+    });
   }
 
   return (

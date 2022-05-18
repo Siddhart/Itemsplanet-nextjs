@@ -1,13 +1,15 @@
-const GA = () => {
-    return (<>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LLNFQYFHBF"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)}
-            gtag('js', new Date());
+import React from 'react'
+import { withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
-            gtag('config', 'G-LLNFQYFHBF');
-        </script></>)
-}
+const GA = ({ history }) => {
 
-export default GA;
+    history.listen((location, action) => {
+        ReactGA.set({ page: location.pathname });
+        ReactGA.pageview(location.pathname);
+    });
+
+    return <div></div>;
+};
+
+export default withRouter(GA);

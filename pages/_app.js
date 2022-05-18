@@ -21,6 +21,10 @@ import "../styles/cleanup.min.css";
 //components
 import CookiePopup from "../components/CookiePopup";
 
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-LLNFQYFHBF";
+ReactGA.initialize(TRACKING_ID);
+
 Router.events.on("routeChangeComplete", () => {
   window.scrollTo(0, 0);
 });
@@ -199,7 +203,7 @@ function MyApp({ Component, pageProps }) {
       ) : (
         <></>
       )}
-      <GA></GA>
+      <GA />
     </>
   );
 }

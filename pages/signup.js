@@ -73,6 +73,11 @@ export default function SignIN() {
     setPassword("");
     setRepeatPassword("");
     setAccepted(false);
+
+    ReactGA.event({
+      category: 'User',
+      action: 'User Register'
+    });
   }
 
   return (
