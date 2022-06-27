@@ -1503,7 +1503,7 @@ body, html {
 }
 
 .footer {
-    top: 150px;
+    top: 200px;
     position: relative;
     z-index: 100;
     height: fit-content;
