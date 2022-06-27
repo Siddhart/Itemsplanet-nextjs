@@ -411,7 +411,6 @@ body, html {
     grid-row-end: span var(--category_card);
     margin-bottom: var(--card_vertical_spacing);
     height: 130px;
-    display: flex;
     justify-content: center;
 }
 
@@ -2093,7 +2092,6 @@ label {
 .category_card {
     grid-row-end: span var(--category_card);
     margin-bottom: var(--card_vertical_spacing);
-    display: flex;
 }
 
 .card_featured {
@@ -2141,8 +2139,9 @@ label {
     font-size: 24px;
     font-weight: 900;
 
-    position: absolute;
-    top: 0px;
+    top: -130px;
+    margin-top: 0px;
+    position: relative;
     
     height: 130px;
 
