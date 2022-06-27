@@ -13,17 +13,12 @@ import { useCookies } from "react-cookie";
 //next components
 import Router, { useRouter } from "next/router";
 import Head from 'next/head'
-import GA from '../components/GA'
 
 //css files
 import "../styles/cleanup.min.css";
 
 //components
 import CookiePopup from "../components/CookiePopup";
-
-import ReactGA from 'react-ga';
-const TRACKING_ID = "G-LLNFQYFHBF";
-ReactGA.initialize(TRACKING_ID);
 
 Router.events.on("routeChangeComplete", () => {
   window.scrollTo(0, 0);

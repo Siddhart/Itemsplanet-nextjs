@@ -75,12 +75,11 @@ request(GRAPHCMS, query).then(async (data) => {
   totalChunkArray.map((objList, chunkNum) => {
     objList.map((obj) => {
       if (obj.node.backgroundImage) {
-        obj.node["cardClass"] = "item card_large";
+        obj.node["cardClass"] = "item card_featured";
         obj.node["blogCardImage"] = obj.node.images[0].url;
         obj.node["blog"] = true;
       } else {
-        obj.node["cardClass"] =
-          classArray[Math.floor(Math.random() * classArray.length)];
+        obj.node["cardClass"] = "item card_featured";
         obj.node["blog"] = false;
       }
     });
@@ -136,7 +135,7 @@ request(GRAPHCMS, query).then(async (data) => {
       chunkNum + 1 != totalBlogChunkArray.length ? chunkNum + 1 : "none";
 
     objList.map((obj) => {
-      obj.node["cardClass"] = "item card_large";
+      obj.node["cardClass"] = "item card_featured";
       obj.node["blogCardImage"] = obj.node.images[0].url;
       obj.node["blog"] = true;
     });
@@ -205,8 +204,7 @@ request(GRAPHCMS, query).then(async (data) => {
           chunkNum + 1 != totalChunkArray.length ? chunkNum + 1 : "none";
 
         objList.map((obj) => {
-          obj.node["cardClass"] =
-            classArray[Math.floor(Math.random() * classArray.length)];
+          obj.node["cardClass"] = "item card_featured";
           obj.node["blog"] = false;
         });
 
