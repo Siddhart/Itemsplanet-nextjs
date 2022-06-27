@@ -15,7 +15,7 @@ const Card = ({ itemData, saveToUser }) => {
     "SL"
   ]);
 
-  const classArray = ["item card_medium", "item card_large"];
+  const classArray = ["item card_large", "item card_large"];
 
   const [saved, setSaved] = useState(false);
 

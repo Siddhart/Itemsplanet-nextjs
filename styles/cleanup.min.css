@@ -398,7 +398,8 @@ body, html {
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--card_width));
     grid-auto-rows: var(--row_increment);
-    justify-content: center
+    justify-content: center;
+    height: 310px;
 }
 
 .item {
@@ -408,7 +409,10 @@ body, html {
 
 .category_card {
     grid-row-end: span var(--category_card);
-    margin-bottom: var(--card_vertical_spacing)
+    margin-bottom: var(--card_vertical_spacing);
+    height: 130px;
+    display: flex;
+    justify-content: center;
 }
 
 .card_featured {
@@ -446,13 +450,9 @@ body, html {
 }
 
 .category {
-    width: fit-content;
-    margin-top: -82.5px;
-    margin-left: auto;
-    margin-right: auto;
     color: #fff;
     font-size: 26px;
-    font-weight: 900
+    font-weight: 900;
 }
 
 .category p {
@@ -1504,14 +1504,14 @@ body, html {
 }
 
 .footer {
-    margin-top: 150px;
+    top: 150px;
     position: relative;
+    z-index: 100;
     height: fit-content;
-    padding-bottom: 10px;
+    padding-bottom: 35px;
     padding-top: 1px;
     width: 100%;
     background-color: #000;
-    bottom: 0;
     color: #fff
 }
 
@@ -2092,7 +2092,8 @@ label {
 
 .category_card {
     grid-row-end: span var(--category_card);
-    margin-bottom: var(--card_vertical_spacing)
+    margin-bottom: var(--card_vertical_spacing);
+    display: flex;
 }
 
 .card_featured {
@@ -2119,6 +2120,7 @@ label {
 
 .category_card a .item-image-container {
     background-color: black;
+    overflow: hidden;
 }
 
 .category_card a .item-image-container img {
@@ -2134,13 +2136,20 @@ label {
 }
 
 .category {
-    width: fit-content;
-    margin-top: -82.5px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 255px;
     color: #FFF;
-    font-size: 26px;
-    font-weight: 900
+    font-size: 24px;
+    font-weight: 900;
+
+    position: absolute;
+    top: 0px;
+    
+    height: 130px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
 .category p {
