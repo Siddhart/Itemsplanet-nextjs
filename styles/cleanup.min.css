@@ -1504,10 +1504,11 @@ body, html {
 
 .footer {
     top: 200px;
-    position: relative;
     z-index: 100;
     height: fit-content;
     padding-bottom: 35px;
+    position: relative;
+    bottom: 0px;
     padding-top: 1px;
     width: 100%;
     background-color: #000;
@@ -2081,7 +2082,8 @@ label {
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--card_width));
     grid-auto-rows: var(--row_increment);
-    justify-content: center
+    justify-content: center;
+    height: fit-content;
 }
 
 .item {

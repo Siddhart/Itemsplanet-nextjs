@@ -129,6 +129,12 @@ export default function SignIN() {
                 <a>Sign Up Now</a>
               </Link>
             </p>
+            <p>
+              Forgot password?{" "}
+              <Link href="/recover">
+                <a>Recover Your Account</a>
+              </Link>
+            </p>
           </div>
         </div>
       </div>
