@@ -16,6 +16,7 @@ For this project I looked into the [JAM stack](https://jamstack.org/). Its a pro
 - [X] Add firebase support(oh boi I didn't think I would have reached it so far. Well here goes nothing.)
 - [X] Add supabase support(well i did add firebase support and everything worked but i heard great things about supabase. so lets try that one and see how it goes )
 - [X] Do some SEO magic
+- [ ] Fix password recovery system
 
 ## To-Do list Long Term
 - [ ] Remove all the shitcode (not sure if i will be able to do this)
